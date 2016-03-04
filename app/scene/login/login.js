@@ -3,9 +3,7 @@
  */
 
 import React, {
-    AppRegistry,
     Component,
-    ScrollView,
     StyleSheet,
     Text,
     TextInput,
