@@ -14,8 +14,7 @@ import KeyboardHandler from '../../component/keyboard-handler/keyboard-handler';
 import Button from 'react-native-button';
 
 
-
-export class Login extends Component {
+export default class Login extends Component {
 
     constructor(props) {
         super(props);
