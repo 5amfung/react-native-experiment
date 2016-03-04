@@ -24,7 +24,7 @@ export default class Login extends Component {
         };
     }
 
-    login() {
+    login(event) {
         console.log('log in');
     }
 
@@ -78,6 +78,7 @@ export default class Login extends Component {
                             onChangeText={(text) => {
                                 this.setState({password: text});
                             }}
+                            onSubmitEditing={this.login}
                             onFocus={() => {
                                 // Scroll to input when it is covered by keyboard.
                                 this.refs.keyboardHandler.inputFocused(this, 'passwordInput');
