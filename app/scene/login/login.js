@@ -10,7 +10,10 @@ import React, {
     View
 } from 'react-native';
 
-import KeyboardHandler from '../../component/keyboard-handler/keyboard-handler'
+import KeyboardHandler from '../../component/keyboard-handler/keyboard-handler';
+import Button from 'react-native-button';
+
+
 
 export class Login extends Component {
 
@@ -22,6 +25,10 @@ export class Login extends Component {
         };
     }
 
+    login() {
+        console.log('log in');
+    }
+
     render() {
         return (
             <KeyboardHandler ref='keyboardHandler'
@@ -29,10 +36,10 @@ export class Login extends Component {
                              keyboardDismissMode='interactive'
                              keyboardShouldPersistTaps={true}>
                 <View style={styles.container}>
-                    <Text style={styles.welcome}>
+                    <Text style={styles.welcome} allowFontScaling={false}>
                         Welcome to Local Stores!
                     </Text>
-                    <Text style={styles.instructions}>
+                    <Text style={styles.instructions} allowFontScaling={false}>
                         Save time.  Save money.
                     </Text>
                     <View style={styles.inputContainer}>
@@ -78,6 +85,12 @@ export class Login extends Component {
                             }}
                         />
                     </View>
+                    <Button containerStyle={styles.buttonContainer}
+                            onPress={this.login}>
+                        <Text style={styles.button} allowFontScaling={false}>
+                            Log in
+                        </Text>
+                    </Button>
                 </View>
             </KeyboardHandler>
         );
@@ -116,8 +129,24 @@ const styles = StyleSheet.create({
         borderColor: 'transparent'
     },
     input: {
+        fontSize: 16,
         color: '#fff',
         height: 20,
         marginBottom: 10
+    },
+    buttonContainer: {
+        marginLeft: 16,
+        marginRight: 16,
+        marginTop: 20,
+        marginBottom: 20,
+        overflow: 'hidden',
+        borderRadius: 5,
+        padding: 10,
+        backgroundColor: 'lightslategrey'
+    },
+    button: {
+        fontSize: 16,
+        textAlign: 'center',
+        color: '#fff'
     }
 });
