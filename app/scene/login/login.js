@@ -5,11 +5,10 @@
 import React, {
     AppRegistry,
     Component,
-    Image,
+    ScrollView,
     StyleSheet,
     Text,
     TextInput,
-    TouchableWithoutFeedback,
     View
 } from 'react-native';
 
@@ -25,10 +24,8 @@ export class Login extends Component {
 
     render() {
         return (
-            <TouchableWithoutFeedback onPress={() => {
-                this.refs.usernameInput.blur();
-                this.refs.passwordInput.blur();
-            }}>
+            <ScrollView style={styles.scrollViewContainer}
+                        keyboardDismissMode='interactive'>
                 <View style={styles.container}>
                     <Text style={styles.welcome}>
                         Welcome to Local Stores!
@@ -72,18 +69,21 @@ export class Login extends Component {
                         />
                     </View>
                 </View>
-            </TouchableWithoutFeedback>
+            </ScrollView>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    scrollViewContainer: {
+        backgroundColor: 'slategrey'
+    },
     container: {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'stretch',
-        backgroundColor: 'slategrey'
+        marginTop: 100
     },
     welcome: {
         fontSize: 20,
@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
     },
     instructions: {
         textAlign: 'center',
-        color: '#333333',
         margin: 10,
         color: '#fff'
     },
