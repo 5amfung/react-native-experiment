@@ -12,6 +12,8 @@ import React, {
     View
 } from 'react-native';
 
+import KeyboardHandler from '../../component/keyboard-handler/keyboard-handler'
+
 export class Login extends Component {
 
     constructor(props) {
@@ -24,8 +26,10 @@ export class Login extends Component {
 
     render() {
         return (
-            <ScrollView style={styles.scrollViewContainer}
-                        keyboardDismissMode='interactive'>
+            <KeyboardHandler ref='keyboardHandler'
+                             style={styles.scrollViewContainer}
+                             keyboardDismissMode='interactive'
+                             keyboardShouldPersistTaps={true}>
                 <View style={styles.container}>
                     <Text style={styles.welcome}>
                         Welcome to Local Stores!
@@ -50,6 +54,10 @@ export class Login extends Component {
                             onSubmitEditing={(event) => {
                                 this.refs.passwordInput.focus();
                             }}
+                            onFocus={() => {
+                                // Scroll to input when it is covered by keyboard.
+                                this.refs.keyboardHandler.inputFocused(this, 'usernameInput');
+                            }}
                         />
                     </View>
                     <View style={styles.inputContainer}>
@@ -66,10 +74,14 @@ export class Login extends Component {
                             onChangeText={(text) => {
                                 this.setState({password: text});
                             }}
+                            onFocus={() => {
+                                // Scroll to input when it is covered by keyboard.
+                                this.refs.keyboardHandler.inputFocused(this, 'passwordInput');
+                            }}
                         />
                     </View>
                 </View>
-            </ScrollView>
+            </KeyboardHandler>
         );
     }
 }
