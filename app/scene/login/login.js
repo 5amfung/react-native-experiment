@@ -24,7 +24,7 @@ export default class Login extends Component {
         };
     }
 
-    _login(event) {
+    _login() {
         console.log('log in');
 
         // TODO:
@@ -70,7 +70,7 @@ export default class Login extends Component {
                             onChangeText={(text) => {
                                 this.setState({username: text});
                             }}
-                            onSubmitEditing={(event) => {
+                            onSubmitEditing={() => {
                                 this.refs.passwordInput.focus();
                             }}
                             onFocus={() => {
