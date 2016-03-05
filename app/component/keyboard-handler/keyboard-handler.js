@@ -20,7 +20,7 @@ var React = require('react-native');
 var {
     ScrollView,
     View,
-    DeviceEventEmitter,
+    DeviceEventEmitter
 } = React;
 
 
@@ -30,7 +30,8 @@ var myprops = {
 
 var KeyboardHandler = React.createClass({
     propTypes: {
-        offset: React.PropTypes.number
+        offset: React.PropTypes.number,
+        children: React.PropTypes.node
     },
     getDefaultProps(){
         return myprops;
@@ -50,11 +51,11 @@ var KeyboardHandler = React.createClass({
         };
         // pass on any props we don't own to ScrollView
         Object.keys(this.props).filter((n)=> {
-                return n != 'children'
-            })
-            .forEach((e)=> {
-                if (!myprops[e])this.scrollviewProps[e] = this.props[e]
-            });
+            return n != 'children';
+        })
+        .forEach((e)=> {
+            if (!myprops[e])this.scrollviewProps[e] = this.props[e];
+        });
 
         return {
             keyboardSpace: 0
