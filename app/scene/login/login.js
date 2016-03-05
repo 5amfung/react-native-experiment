@@ -24,8 +24,23 @@ export default class Login extends Component {
         };
     }
 
-    login(event) {
+    _login(event) {
         console.log('log in');
+
+        // TODO:
+        //   store.dispatch(login(username));
+        //   Parse.login(this.state.username, this.state.password);
+        //       .then((result) => {
+        //           store.dispatch(loginSucceeded(result.authCode));
+        //       }).catch((error) => {
+        //           store.dispatch(loginFailed(error));
+        //       });
+
+    }
+
+    _scrollToInput(ref) {
+        // Scroll to input when it is covered by keyboard.
+        this.refs.keyboardHandler.inputFocused(this, ref);
     }
 
     render() {
@@ -59,8 +74,7 @@ export default class Login extends Component {
                                 this.refs.passwordInput.focus();
                             }}
                             onFocus={() => {
-                                // Scroll to input when it is covered by keyboard.
-                                this.refs.keyboardHandler.inputFocused(this, 'usernameInput');
+                                this._scrollToInput('usernameInput');
                             }}
                         />
                     </View>
@@ -80,13 +94,12 @@ export default class Login extends Component {
                             }}
                             onSubmitEditing={this.login}
                             onFocus={() => {
-                                // Scroll to input when it is covered by keyboard.
-                                this.refs.keyboardHandler.inputFocused(this, 'passwordInput');
+                                this._scrollToInput('passwordInput');
                             }}
                         />
                     </View>
                     <Button containerStyle={styles.buttonContainer}
-                            onPress={this.login}>
+                            onPress={this._login}>
                         <Text style={styles.button} allowFontScaling={false}>
                             Log in
                         </Text>
