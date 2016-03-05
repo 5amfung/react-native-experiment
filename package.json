@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "lint": "node node_modules/eslint/bin/eslint.js -c ./.eslintrc.json app/"
+    "lint": "node node_modules/eslint/bin/eslint.js -c ./.eslintrc.json index.ios.js index.android.js app/"
   },
   "dependencies": {
     "react-native": "^0.21.0",
