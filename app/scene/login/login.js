@@ -92,7 +92,7 @@ export default class Login extends Component {
                             onChangeText={(text) => {
                                 this.setState({password: text});
                             }}
-                            onSubmitEditing={this.login}
+                            onSubmitEditing={this._login}
                             onFocus={() => {
                                 this._scrollToInput('passwordInput');
                             }}
