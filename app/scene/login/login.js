@@ -27,15 +27,6 @@ export default class Login extends Component {
     _login() {
         console.log('log in');
 
-        // TODO:
-        //   store.dispatch(login(username));
-        //   Parse.login(this.state.username, this.state.password);
-        //       .then((result) => {
-        //           store.dispatch(loginSucceeded(result.authCode));
-        //       }).catch((error) => {
-        //           store.dispatch(loginFailed(error));
-        //       });
-
     }
 
     _scrollToInput(ref) {
