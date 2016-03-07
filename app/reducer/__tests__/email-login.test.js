@@ -25,8 +25,8 @@ describe('email-login reducer', () => {
     });
 
     it('returns same state if action is unknown', () => {
-        let dummyState = {};
-        expect(reducer(dummyState, {})).toEqual(dummyState);
+        let beforeState = { foo: 'bar' };
+        expect(reducer(beforeState, {})).toEqual(beforeState);
     });
 
     it('emailLoginStart', () => {

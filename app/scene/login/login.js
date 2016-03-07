@@ -26,11 +26,15 @@ export default class Login extends Component {
 
     _login() {
         console.log('log in');
-
     }
 
+    /**
+     * Scroll up to input if it is covered by the keyboard.
+     *
+     * @param ref ref name
+     * @private
+     */
     _scrollToInput(ref) {
-        // Scroll to input when it is covered by keyboard.
         this.refs.keyboardHandler.inputFocused(this, ref);
     }
 
