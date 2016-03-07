@@ -13,7 +13,7 @@ import {
 
 jest.unmock('../email-login');
 
-describe('email-login', () => {
+describe('email-login actions', () => {
 
     it('emailLoginStart', () => {
         const action = {
