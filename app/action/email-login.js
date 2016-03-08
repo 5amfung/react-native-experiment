@@ -26,3 +26,24 @@ export function emailLoginFailed(error) {
         error
     };
 }
+
+export function emailLogin(username, password) {
+    return dispatch => {
+        dispatch(emailLoginStart());
+
+        // TODO:
+        // Parse.User.login(username, password)
+        //     .then(user => {
+        //         dispatch(emailLoginCompleted(user));
+        //     })
+        //     .catch(error => {
+        //         dispatch(emailLoginFailed(error));
+        //     });
+
+        let user = {
+            id: 123,
+            email: 'foo@example.com'
+        };
+        dispatch(emailLoginCompleted(user));
+    };
+}

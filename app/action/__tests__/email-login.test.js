@@ -40,4 +40,9 @@ describe('email login actions', () => {
         expect(emailLoginFailed(error)).toEqual(action);
     });
 
+    it('emailLogin', () => {
+
+        // TODO: Implement.
+
+    });
 });
