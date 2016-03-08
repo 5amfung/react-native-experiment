@@ -27,7 +27,7 @@ var myprops = {
     offset: 34
 };
 
-export var KeyboardHandler = React.createClass({
+var KeyboardHandler = React.createClass({
     propTypes: {
         offset: React.PropTypes.number,
         children: React.PropTypes.node
@@ -79,3 +79,5 @@ export var KeyboardHandler = React.createClass({
         }, 50);
     }
 });
+
+export default KeyboardHandler;

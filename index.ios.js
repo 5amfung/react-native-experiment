@@ -2,9 +2,8 @@
  * Local Stores app.
  */
 
-import { AppRegistry } from 'react-native';
-//import { App } from './app';
-import Login from './app/component/login';
+import React, { AppRegistry } from 'react-native';
+import App from './app';
 
-// AppRegistry.registerComponent('LocalStores', () => App);
-AppRegistry.registerComponent('LocalStores', () => Login);
+
+AppRegistry.registerComponent('LocalStores', () => App);

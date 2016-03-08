@@ -7,13 +7,13 @@ import {
     emailLoginCompleted,
     emailLoginFailed
 } from '../../action/email-login';
-import reducer from '../email-login';
+import emailLogin from '../email-login';
 
 
 jest.unmock('../email-login');
 jest.unmock('../../action/email-login');
 
-describe('email-login reducer', () => {
+describe('email-login', () => {
 
     let initialState = {
         loading: false,
@@ -21,12 +21,12 @@ describe('email-login reducer', () => {
     };
 
     it('returns initial state.', () => {
-        expect(reducer(undefined, {})).toEqual(initialState);
+        expect(emailLogin(undefined, {})).toEqual(initialState);
     });
 
     it('returns same state if action is unknown', () => {
         let beforeState = { foo: 'bar' };
-        expect(reducer(beforeState, {})).toEqual(beforeState);
+        expect(emailLogin(beforeState, {})).toEqual(beforeState);
     });
 
     it('emailLoginStart', () => {
@@ -38,7 +38,7 @@ describe('email-login reducer', () => {
             loading: true,
             error: null
         };
-        expect(reducer(beforeState, emailLoginStart())).toEqual(afterState);
+        expect(emailLogin(beforeState, emailLoginStart())).toEqual(afterState);
     });
 
     it('emailLoginCompleted', () => {
@@ -51,7 +51,7 @@ describe('email-login reducer', () => {
             loading: false,
             error: null
         };
-        expect(reducer(beforeState, emailLoginCompleted(user))).toEqual(afterState);
+        expect(emailLogin(beforeState, emailLoginCompleted(user))).toEqual(afterState);
     });
 
     it('emailLoginFailed', () => {
@@ -64,6 +64,6 @@ describe('email-login reducer', () => {
             loading: false,
             error
         };
-        expect(reducer(beforeState, emailLoginFailed(error))).toEqual(afterState);
+        expect(emailLogin(beforeState, emailLoginFailed(error))).toEqual(afterState);
     });
 });

@@ -13,7 +13,7 @@ const initialState = {
     error: null
 };
 
-export default function reducer(state = initialState, action) {
+export default function emailLogin(state = initialState, action) {
     switch (action.type) {
         case EMAIL_LOGIN_START:
             return {
