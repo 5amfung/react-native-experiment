@@ -9,7 +9,7 @@ import {
 } from '../action/email-login';
 
 const initialState = {
-    loading: false,
+    inProgress: false,
     error: null
 };
 
@@ -18,14 +18,14 @@ export default function emailLogin(state = initialState, action) {
         case EMAIL_LOGIN_START:
             return {
                 ...state,
-                loading: true
+                inProgress: true
             };
         case EMAIL_LOGIN_COMPLETED:
             return {...initialState};
         case EMAIL_LOGIN_FAILED:
             return {
                 ...state,
-                loading: false,
+                inProgress: false,
                 error: action.error
             };
         default:

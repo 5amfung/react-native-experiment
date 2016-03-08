@@ -3,14 +3,13 @@
  */
 
 import React, { Component } from 'react-native';
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducer';
-
+import * as reducers from './reducer';
 import Login from './component/login';
 
 
-let store = createStore(reducer);
+let store = createStore(combineReducers(reducers));
 
 export default class App extends Component {
     render() {

@@ -13,10 +13,10 @@ import emailLogin from '../email-login';
 jest.unmock('../email-login');
 jest.unmock('../../action/email-login');
 
-describe('email-login', () => {
+describe('email login reducers', () => {
 
     let initialState = {
-        loading: false,
+        inProgress: false,
         error: null
     };
 
@@ -31,11 +31,11 @@ describe('email-login', () => {
 
     it('emailLoginStart', () => {
         let beforeState = {
-            loading: false,
+            inProgress: false,
             error: null
         };
         let afterState = {
-            loading: true,
+            inProgress: true,
             error: null
         };
         expect(emailLogin(beforeState, emailLoginStart())).toEqual(afterState);
@@ -44,11 +44,11 @@ describe('email-login', () => {
     it('emailLoginCompleted', () => {
         let user = {};
         let beforeState = {
-            loading: true,
+            inProgress: true,
             error: null
         };
         let afterState = {
-            loading: false,
+            inProgress: false,
             error: null
         };
         expect(emailLogin(beforeState, emailLoginCompleted(user))).toEqual(afterState);
@@ -57,11 +57,11 @@ describe('email-login', () => {
     it('emailLoginFailed', () => {
         let error = {};
         let beforeState = {
-            loading: true,
+            inProgress: true,
             error: null
         };
         let afterState = {
-            loading: false,
+            inProgress: false,
             error
         };
         expect(emailLogin(beforeState, emailLoginFailed(error))).toEqual(afterState);

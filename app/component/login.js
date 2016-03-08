@@ -24,7 +24,7 @@ export default class Login extends Component {
         };
     }
 
-    _login() {
+    _handleSubmit() {
         console.log('log in');
     }
 
@@ -87,14 +87,14 @@ export default class Login extends Component {
                             onChangeText={(text) => {
                                 this.setState({password: text});
                             }}
-                            onSubmitEditing={this._login}
+                            onSubmitEditing={this._handleSubmit}
                             onFocus={() => {
                                 this._scrollToInput('passwordInput');
                             }}
                         />
                     </View>
                     <Button containerStyle={styles.buttonContainer}
-                            onPress={this._login}>
+                            onPress={this._handleSubmit}>
                         <Text style={styles.button} allowFontScaling={false}>
                             Log in
                         </Text>
@@ -105,7 +105,7 @@ export default class Login extends Component {
     }
 }
 
-const styles = StyleSheet.create({
+let styles = StyleSheet.create({
     scrollViewContainer: {
         backgroundColor: 'slategrey'
     },
