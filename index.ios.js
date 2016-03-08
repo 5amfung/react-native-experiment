@@ -3,6 +3,8 @@
  */
 
 import { AppRegistry } from 'react-native';
-import Login from './app/scene/login/login';
+//import { App } from './app';
+import Login from './app/component/login';
 
+// AppRegistry.registerComponent('LocalStores', () => App);
 AppRegistry.registerComponent('LocalStores', () => Login);

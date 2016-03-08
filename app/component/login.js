@@ -10,7 +10,7 @@ import React, {
     View
 } from 'react-native';
 
-import KeyboardHandler from '../../component/keyboard-handler/keyboard-handler';
+import KeyboardHandler from './keyboard-handler';
 import Button from 'react-native-button';
 
 

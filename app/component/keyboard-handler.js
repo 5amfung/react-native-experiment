@@ -16,19 +16,18 @@
  *  Any other specified props will be passed on to ScrollView
  */
 
-var React = require('react-native');
-var {
+import React, {
     ScrollView,
     View,
     DeviceEventEmitter
-} = React;
+} from 'react-native';
 
 
 var myprops = {
     offset: 34
 };
 
-var KeyboardHandler = React.createClass({
+export var KeyboardHandler = React.createClass({
     propTypes: {
         offset: React.PropTypes.number,
         children: React.PropTypes.node
@@ -80,5 +79,3 @@ var KeyboardHandler = React.createClass({
         }, 50);
     }
 });
-
-module.exports = KeyboardHandler;
