@@ -5,15 +5,22 @@
 import React, { Component } from 'react-native';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import * as reducers from './reducer';
 import thunk from 'redux-thunk';
+import * as reducers from '../reducer';
 
-import Login from './component/login';
+import Login from '../component/login';
 
 
 let store = createStore(combineReducers(reducers), applyMiddleware(thunk));
 
 export default class App extends Component {
+
+    constructor(props) {
+        super(props);
+
+        // TODO: Configure stuff here.
+    }
+
     render() {
         return (
             <Provider store={store}>

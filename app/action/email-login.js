@@ -40,10 +40,12 @@ export function emailLogin(username, password) {
         //         dispatch(emailLoginFailed(error));
         //     });
 
-        let user = {
-            id: 123,
-            email: 'foo@example.com'
-        };
-        dispatch(emailLoginCompleted(user));
+        setTimeout(() => {
+            let user = {
+                id: 123,
+                email: 'foo@example.com'
+            };
+            dispatch(emailLoginCompleted(user));
+        }, 1000);
     };
 }

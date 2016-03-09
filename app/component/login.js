@@ -12,7 +12,7 @@ import React, {
 
 import KeyboardHandler from './keyboard-handler';
 import Button from 'react-native-button';
-
+// import { emailLogin } from '../action/email-login';
 
 export default class Login extends Component {
 
@@ -25,7 +25,8 @@ export default class Login extends Component {
     }
 
     _handleSubmit() {
-        console.log('log in');
+        // this.prop.onSubmit(this.state.username, this.state.password);
+        console.log('login');
     }
 
     /**
