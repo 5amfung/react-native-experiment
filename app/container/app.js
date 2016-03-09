@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import * as reducers from '../reducer';
 
-import Login from '../component/login';
+import Login from './login';
 
 
 let store = createStore(combineReducers(reducers), applyMiddleware(thunk));
