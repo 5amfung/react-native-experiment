@@ -33,11 +33,15 @@ export function emailSignUp({ email, password, firstName, lastName }) {
     return dispatch => {
         dispatch(emailSignUpStart());
 
-        Parse.User.signUp(email, password, {
-            email: email,
-            firstName: firstName,
-            lastName: lastName
-        }).then(user => {
+        let user = new Parse.User({
+            username: email,
+            password,
+            email,
+            firstName,
+            lastName,
+            active: true
+        });
+        user.signUp().then(user => {
             console.log('Sign up completed:', user);
             dispatch(emailSignUpCompleted(user));
         }, error => {
