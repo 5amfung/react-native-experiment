@@ -1,5 +1,5 @@
 /**
- * Login scene.
+ * Sign scene.
  */
 
 import React, {
@@ -12,21 +12,24 @@ import React, {
 import { connect } from 'react-redux';
 import KeyboardHandler from '../component/keyboard-handler';
 import Button from 'react-native-button';
-import { emailLogin }  from '../action/email-login';
+import { emailSignUp } from '../action/email-signup';
 
 
-class Login extends Component {
+class SignUp extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            firstName: '',
+            lastName: '',
             email: '',
-            password: ''
+            password: '',
+            passwordAgain: '',
         };
     }
 
     _handleSubmit() {
-        this.props.dispatch(emailLogin(this.state));
+        this.props.dispatch(emailSignUp(this.state));
     }
 
     /**
@@ -54,6 +57,52 @@ class Login extends Component {
                     </Text>
                     <View style={styles.inputContainer}>
                         <TextInput
+                            ref='firstNameInput'
+                            style={styles.input}
+                            placeholder='First name'
+                            placeholderTextColor='#aaa'
+                            selectionColor='#fff'
+                            autoCapitalize='none'
+                            autoCorrect={false}
+                            returnKeyType='next'
+                            value={this.state.firstName}
+                            onChangeText={(text) => {
+                                this.setState({ firstName: text});
+                            }}s
+                            onSubmitEditing={() => {
+                                // On enter key, jump to next field.
+                                this.refs.lastNameInput.focus();
+                            }}
+                            onFocus={() => {
+                                this._scrollToInput('firstNameInput');
+                            }}
+                        />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <TextInput
+                            ref='lastNameInput'
+                            style={styles.input}
+                            placeholder='Last name'
+                            placeholderTextColor='#aaa'
+                            selectionColor='#fff'
+                            autoCapitalize='none'
+                            autoCorrect={false}
+                            returnKeyType='next'
+                            value={this.state.lastName}
+                            onChangeText={(text) => {
+                                this.setState({ lastName: text });
+                            }}
+                            onSubmitEditing={() => {
+                                // On enter key, jump to next field.
+                                this.refs.emailInput.focus();
+                            }}
+                            onFocus={() => {
+                                this._scrollToInput('lastNameInput');
+                            }}
+                        />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <TextInput
                             ref='emailInput'
                             style={styles.input}
                             placeholder='Email'
@@ -68,6 +117,7 @@ class Login extends Component {
                                 this.setState({email: text});
                             }}
                             onSubmitEditing={() => {
+                                // On enter key, jump to next field.
                                 this.refs.passwordInput.focus();
                             }}
                             onFocus={() => {
@@ -90,10 +140,33 @@ class Login extends Component {
                                 this.setState({password: text});
                             }}
                             onSubmitEditing={() => {
-                                this._handleSubmit();
+                                // On enter key, jump to next field.
+                                this.refs.passwordAgainInput.focus();
                             }}
                             onFocus={() => {
                                 this._scrollToInput('passwordInput');
+                            }}
+                        />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <TextInput
+                            ref='passwordAgainInput'
+                            style={styles.input}
+                            placeholder='Password again'
+                            placeholderTextColor='#aaa'
+                            selectionColor='#fff'
+                            autoCapitalize='none'
+                            autoCorrect={false}
+                            secureTextEntry={true}
+                            value={this.state.passwordAgain}
+                            onChangeText={(text) => {
+                                this.setState({passwordAgain: text});
+                            }}
+                            onSubmitEditing={() => {
+                                this._handleSubmit();
+                            }}
+                            onFocus={() => {
+                                this._scrollToInput('passwordAgainInput');
                             }}
                         />
                     </View>
@@ -102,7 +175,7 @@ class Login extends Component {
                                 this._handleSubmit();
                             }}>
                         <Text style={styles.button} allowFontScaling={false}>
-                            Log in
+                            Sign Up
                         </Text>
                     </Button>
                 </View>
@@ -110,8 +183,7 @@ class Login extends Component {
         );
     }
 }
-export default connect()(Login);
-
+export default connect()(SignUp);
 
 let styles = StyleSheet.create({
     scrollViewContainer: {

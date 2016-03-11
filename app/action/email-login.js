@@ -2,6 +2,8 @@
  * Actions for email login.
  */
 
+import Parse from '../util/parse';
+
 export const EMAIL_LOGIN_START = 'EMAIL_LOGIN_START';
 export const EMAIL_LOGIN_COMPLETED = 'EMAIL_LOGIN_COMPLETED';
 export const EMAIL_LOGIN_FAILED = 'EMAIL_LOGIN_FAILED';
@@ -27,25 +29,15 @@ export function emailLoginFailed(error) {
     };
 }
 
-export function emailLogin(username, password) {
-    return dispatch => {
+export function emailLogin({ email, password }) {
+    return (dispatch) => {
         dispatch(emailLoginStart());
-
-        // TODO:
-        // Parse.User.login(username, password)
-        //     .then(user => {
-        //         dispatch(emailLoginCompleted(user));
-        //     })
-        //     .catch(error => {
-        //         dispatch(emailLoginFailed(error));
-        //     });
-
-        setTimeout(() => {
-            let user = {
-                id: 123,
-                email: 'foo@example.com'
-            };
+        Parse.User.logIn(email, password).then(user => {
+            console.log('Login completed:', user);
             dispatch(emailLoginCompleted(user));
-        }, 1000);
+        }, error => {
+            console.log('Login failed:', error);
+            dispatch(emailLoginFailed(error));
+        });
     };
 }

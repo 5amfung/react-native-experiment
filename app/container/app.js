@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 import * as reducers from '../reducer';
 
 import Login from './login';
+import SignUp from './signup';
 
 
 let store = createStore(combineReducers(reducers), applyMiddleware(thunk));
@@ -17,8 +18,6 @@ export default class App extends Component {
 
     constructor(props) {
         super(props);
-
-        // TODO: Configure stuff here.
     }
 
     render() {

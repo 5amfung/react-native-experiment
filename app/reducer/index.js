@@ -3,7 +3,9 @@
  */
 
 import emailLogin from './email-login';
+import emailSignUp from './email-signup';
 
 export {
-    emailLogin
+    emailLogin,
+    emailSignUp
 };
