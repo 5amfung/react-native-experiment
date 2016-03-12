@@ -9,7 +9,7 @@ import {
     emailLoginStart,
     emailLoginCompleted,
     emailLoginFailed
-} from '../email-login';
+} from '../email-login-actions';
 
 jest.unmock('../email-login');
 

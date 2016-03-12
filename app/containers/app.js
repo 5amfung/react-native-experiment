@@ -6,7 +6,7 @@ import React, { Component } from 'react-native';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import * as reducers from '../reducer';
+import * as reducers from '../reducers';
 
 import Login from './login';
 import SignUp from './signup';

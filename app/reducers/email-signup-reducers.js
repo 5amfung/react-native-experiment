@@ -1,12 +1,12 @@
 /**
- * Reducer for email login.
+ * Reducer for email sign up.
  */
 
 import {
-    EMAIL_LOGIN_START,
-    EMAIL_LOGIN_COMPLETED,
-    EMAIL_LOGIN_FAILED
-} from '../action/email-login';
+    EMAIL_SIGN_UP_START,
+    EMAIL_SIGN_UP_COMPLETED,
+    EMAIL_SIGN_UP_FAILED
+} from '../actions/email-signup-actions';
 
 
 const initialState = {
@@ -15,21 +15,21 @@ const initialState = {
     error: null
 };
 
-export default function emailLogin(state = initialState, action) {
+export default function emailSignUp(state = initialState, action) {
     switch (action.type) {
-        case EMAIL_LOGIN_START:
+        case EMAIL_SIGN_UP_START:
             return {
                 ...state,
                 inProgress: true,
                 user: null
             };
-        case EMAIL_LOGIN_COMPLETED:
+        case EMAIL_SIGN_UP_COMPLETED:
             return {
                 ...state,
                 inProgress: false,
                 user: action.user
             };
-        case EMAIL_LOGIN_FAILED:
+        case EMAIL_SIGN_UP_FAILED:
             return {
                 ...state,
                 inProgress: false,
@@ -39,3 +39,4 @@ export default function emailLogin(state = initialState, action) {
             return state;
     }
 }
+

@@ -2,7 +2,7 @@
  * Actions for email sign up.
  */
 
-import Parse from '../util/parse';
+import Parse from '../utils/parse';
 
 export const EMAIL_SIGN_UP_START = 'EMAIL_SIGN_UP_START';
 export const EMAIL_SIGN_UP_COMPLETED = 'EMAIL_SIGN_UP_COMPLETED';

@@ -10,9 +10,9 @@ import React, {
     View
 } from 'react-native';
 import { connect } from 'react-redux';
-import KeyboardHandler from '../component/keyboard-handler';
+import KeyboardHandler from '../components/keyboard-handler';
 import Button from 'react-native-button';
-import { emailLogin }  from '../action/email-login';
+import { emailLogin }  from '../actions/email-login-actions';
 
 
 class Login extends Component {

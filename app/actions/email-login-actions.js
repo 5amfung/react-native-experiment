@@ -2,7 +2,7 @@
  * Actions for email login.
  */
 
-import Parse from '../util/parse';
+import Parse from '../utils/parse';
 
 export const EMAIL_LOGIN_START = 'EMAIL_LOGIN_START';
 export const EMAIL_LOGIN_COMPLETED = 'EMAIL_LOGIN_COMPLETED';

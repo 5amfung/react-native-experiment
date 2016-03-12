@@ -6,12 +6,12 @@ import {
     emailLoginStart,
     emailLoginCompleted,
     emailLoginFailed
-} from '../../action/email-login';
-import emailLogin from '../email-login';
+} from '../../actions/email-login-actions';
+import emailLogin from '../email-login-reducers';
 
 
 jest.unmock('../email-login');
-jest.unmock('../../action/email-login');
+jest.unmock('../../actions/email-login');
 
 describe('email login reducers', () => {
 
@@ -24,7 +24,7 @@ describe('email login reducers', () => {
         expect(emailLogin(undefined, {})).toEqual(initialState);
     });
 
-    it('returns same state if action is unknown', () => {
+    it('returns same state if actions is unknown', () => {
         let beforeState = { foo: 'bar' };
         expect(emailLogin(beforeState, {})).toEqual(beforeState);
     });
