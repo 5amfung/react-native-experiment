@@ -21,7 +21,8 @@ export default function emailLogin(state = initialState, action) {
             return {
                 ...state,
                 inProgress: true,
-                user: null
+                user: null,
+                error: null
             };
         case EMAIL_LOGIN_COMPLETED:
             return {

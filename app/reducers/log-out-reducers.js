@@ -20,7 +20,8 @@ export default function logOut(state = initialState, action) {
         case LOG_OUT_START:
             return {
                 ...state,
-                inProgress: true
+                inProgress: true,
+                error: null
             };
         case LOG_OUT_COMPLETED:
             return {

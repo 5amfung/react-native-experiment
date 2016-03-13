@@ -21,7 +21,8 @@ export default function emailSignUp(state = initialState, action) {
             return {
                 ...state,
                 inProgress: true,
-                user: null
+                user: null,
+                error: null
             };
         case EMAIL_SIGN_UP_COMPLETED:
             return {
