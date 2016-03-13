@@ -40,7 +40,7 @@ var KeyboardHandler = React.createClass({
             if (!frames.endCoordinates) return;
             this.setState({keyboardSpace: frames.endCoordinates.height});
         });
-        DeviceEventEmitter.addListener('keyboardWillHide', (frames) => {
+        DeviceEventEmitter.addListener('keyboardWillHide', (/**frames*/) => {
             this.setState({keyboardSpace: 0});
         });
 

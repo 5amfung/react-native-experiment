@@ -2,7 +2,7 @@
  * App component.
  */
 
-import React, { Component, TabBarIOS } from 'react-native';
+import React, { Component } from 'react-native';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';

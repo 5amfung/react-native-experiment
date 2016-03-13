@@ -42,10 +42,8 @@ export function emailSignUp({ email, password, firstName, lastName }) {
             active: true
         });
         user.signUp().then(user => {
-            console.log('Sign up completed:', user);
             dispatch(emailSignUpCompleted(user));
         }, error => {
-            console.log('Sign up failed:', error);
             dispatch(emailSignUpFailed(error));
         });
     };

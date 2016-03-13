@@ -32,11 +32,9 @@ export function emailLoginFailed(error) {
 export function emailLogin({ email, password }) {
     return (dispatch) => {
         dispatch(emailLoginStart());
-        Parse.User.logIn(email, password).then(user => {
-            console.log('Login completed:', user);
+        return Parse.User.logIn(email, password).then(user => {
             dispatch(emailLoginCompleted(user));
         }, error => {
-            console.log('Login failed:', error);
             dispatch(emailLoginFailed(error));
         });
     };

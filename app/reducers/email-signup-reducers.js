@@ -1,5 +1,5 @@
 /**
- * Reducer for email sign up.
+ * Email sign up reducer.
  */
 
 import {

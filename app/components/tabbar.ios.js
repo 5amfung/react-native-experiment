@@ -42,8 +42,8 @@ export default class TabBar extends Component {
                                         badge={badge}
                                         selected={this._isTabSelected(name)}
                                         onPress={() => {
-                                this._selectTab(name);
-                            }}>
+                                            this._selectTab(name);
+                                        }}>
                 <Child/>
             </MaterialIcon.TabBarItemIOS>
         );

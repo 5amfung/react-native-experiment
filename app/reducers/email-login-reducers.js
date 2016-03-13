@@ -1,5 +1,5 @@
 /**
- * Reducer for email login.
+ * Email login reducer.
  */
 
 import {

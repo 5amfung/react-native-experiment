@@ -24,7 +24,7 @@ class SignUp extends Component {
             lastName: '',
             email: '',
             password: '',
-            passwordAgain: '',
+            passwordAgain: ''
         };
     }
 
@@ -183,6 +183,7 @@ class SignUp extends Component {
         );
     }
 }
+SignUp.propTypes = { dispatch: React.PropTypes.func };
 export default connect()(SignUp);
 
 let styles = StyleSheet.create({

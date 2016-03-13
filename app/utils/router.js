@@ -2,8 +2,6 @@
  * Navigation router.
  */
 
-import React, { TabBarIOS } from 'react-native';
-
 import Capture from '../components/capture';
 import Notifications from '../components/notifications';
 import Profile from '../components/profile';
