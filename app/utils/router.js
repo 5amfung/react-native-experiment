@@ -17,12 +17,6 @@ let Router = {
             },
             getTitle() {
                 return 'Stores';
-            },
-            onDidFocus() {
-                console.log('Stores view: focus');
-            },
-            onDidBlur() {
-                console.log('Stores view: blur');
             }
         };
     },
@@ -34,12 +28,6 @@ let Router = {
             },
             getTitle() {
                 return 'Notifications';
-            },
-            onDidFocus() {
-                console.log('Notifications view: focus');
-            },
-            onDidBlur() {
-                console.log('Notifications view: blur');
             }
         };
     },
@@ -51,12 +39,6 @@ let Router = {
             },
             getTitle() {
                 return 'Search';
-            },
-            onDidFocus() {
-                console.log('Search view: focus');
-            },
-            onDidBlur() {
-                console.log('Search view: blur');
             }
         };
     },
@@ -68,12 +50,6 @@ let Router = {
             },
             getTitle() {
                 return 'Capture';
-            },
-            onDidFocus() {
-                console.log('Capture view: focus');
-            },
-            onDidBlur() {
-                console.log('Capture view: blur');
             }
         };
     },
@@ -85,12 +61,6 @@ let Router = {
             },
             getTitle() {
                 return 'Profile';
-            },
-            onDidFocus() {
-                console.log('Profile view: focus');
-            },
-            onDidBlur() {
-                console.log('Profile view: blur');
             }
         };
     }
