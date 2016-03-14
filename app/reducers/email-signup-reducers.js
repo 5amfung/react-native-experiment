@@ -4,8 +4,8 @@
 
 import {
     EMAIL_SIGN_UP_START,
-    EMAIL_SIGN_UP_COMPLETED,
-    EMAIL_SIGN_UP_FAILED
+    EMAIL_SIGN_UP_SUCCESS,
+    EMAIL_SIGN_UP_ERROR
 } from '../actions/email-signup-actions';
 
 
@@ -24,13 +24,13 @@ export default function emailSignUp(state = initialState, action) {
                 user: null,
                 error: null
             };
-        case EMAIL_SIGN_UP_COMPLETED:
+        case EMAIL_SIGN_UP_SUCCESS:
             return {
                 ...state,
                 inProgress: false,
                 user: action.user
             };
-        case EMAIL_SIGN_UP_FAILED:
+        case EMAIL_SIGN_UP_ERROR:
             return {
                 ...state,
                 inProgress: false,

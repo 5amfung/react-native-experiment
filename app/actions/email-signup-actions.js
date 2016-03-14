@@ -5,8 +5,8 @@
 import Parse from '../utils/parse';
 
 export const EMAIL_SIGN_UP_START = 'EMAIL_SIGN_UP_START';
-export const EMAIL_SIGN_UP_COMPLETED = 'EMAIL_SIGN_UP_COMPLETED';
-export const EMAIL_SIGN_UP_FAILED = 'EMAIL_SIGN_UP_FAILED';
+export const EMAIL_SIGN_UP_SUCCESS = 'EMAIL_SIGN_UP_SUCCESS';
+export const EMAIL_SIGN_UP_ERROR = 'EMAIL_SIGN_UP_ERROR';
 
 
 export function emailSignUpStart() {
@@ -15,16 +15,16 @@ export function emailSignUpStart() {
     };
 }
 
-export function emailSignUpCompleted(user) {
+export function emailSignUpSuccess(user) {
     return {
-        type: EMAIL_SIGN_UP_COMPLETED,
+        type: EMAIL_SIGN_UP_SUCCESS,
         user
     };
 }
 
-export function emailSignUpFailed(error) {
+export function emailSignUpError(error) {
     return {
-        type: EMAIL_SIGN_UP_FAILED,
+        type: EMAIL_SIGN_UP_ERROR,
         error
     };
 }
@@ -42,9 +42,9 @@ export function emailSignUp({ email, password, firstName, lastName }) {
             active: true
         });
         user.signUp().then(user => {
-            dispatch(emailSignUpCompleted(user));
+            dispatch(emailSignUpSuccess(user));
         }, error => {
-            dispatch(emailSignUpFailed(error));
+            dispatch(emailSignUpError(error));
         });
     };
 }

@@ -6,11 +6,11 @@ jest.unmock('../email-signup-actions');
 
 import {
     EMAIL_SIGN_UP_START,
-    EMAIL_SIGN_UP_COMPLETED,
-    EMAIL_SIGN_UP_FAILED,
+    EMAIL_SIGN_UP_SUCCESS,
+    EMAIL_SIGN_UP_ERROR,
     emailSignUpStart,
-    emailSignUpCompleted,
-    emailSignUpFailed
+    emailSignUpSuccess,
+    emailSignUpError
 } from '../email-signup-actions';
 
 
@@ -23,22 +23,22 @@ describe('email sign up actions', () => {
         expect(emailSignUpStart()).toEqual(action);
     });
 
-    it('returns email sign up completed action', () => {
+    it('returns email sign up success action', () => {
         const user = {};
         const action = {
-            type: EMAIL_SIGN_UP_COMPLETED,
+            type: EMAIL_SIGN_UP_SUCCESS,
             user
         };
-        expect(emailSignUpCompleted(user).toEqual(action));
+        expect(emailSignUpSuccess(user).toEqual(action));
     });
 
-    it('returns email sign up failed action', () => {
+    it('returns email sign up error action', () => {
         const error = {};
         const action = {
-            type: EMAIL_SIGN_UP_FAILED,
+            type: EMAIL_SIGN_UP_ERROR,
             error
         };
-        expect(emailSignUpFailed(error).toEqual(action));
+        expect(emailSignUpError(error).toEqual(action));
     });
 
     it('signs up user', () => {

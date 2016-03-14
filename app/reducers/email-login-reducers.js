@@ -4,8 +4,8 @@
 
 import {
     EMAIL_LOGIN_START,
-    EMAIL_LOGIN_COMPLETED,
-    EMAIL_LOGIN_FAILED
+    EMAIL_LOGIN_SUCCESS,
+    EMAIL_LOGIN_ERROR
 } from '../actions/email-login-actions';
 
 
@@ -24,13 +24,13 @@ export default function emailLogin(state = initialState, action) {
                 user: null,
                 error: null
             };
-        case EMAIL_LOGIN_COMPLETED:
+        case EMAIL_LOGIN_SUCCESS:
             return {
                 ...state,
                 inProgress: false,
                 user: action.user
             };
-        case EMAIL_LOGIN_FAILED:
+        case EMAIL_LOGIN_ERROR:
             return {
                 ...state,
                 inProgress: false,

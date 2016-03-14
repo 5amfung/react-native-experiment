@@ -4,8 +4,8 @@
 
 import {
     LOG_OUT_START,
-    LOG_OUT_COMPLETED,
-    LOG_OUT_FAILED
+    LOG_OUT_SUCCESS,
+    LOG_OUT_ERROR
 } from '../actions/logout-actions';
 
 
@@ -23,12 +23,12 @@ export default function logOut(state = initialState, action) {
                 inProgress: true,
                 error: null
             };
-        case LOG_OUT_COMPLETED:
+        case LOG_OUT_SUCCESS:
             return {
                 ...state,
                 inProgress: false
             };
-        case LOG_OUT_FAILED:
+        case LOG_OUT_ERROR:
             return {
                 ...state,
                 inProgress: false,

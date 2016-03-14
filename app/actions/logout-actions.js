@@ -5,8 +5,8 @@
 import Parse from '../utils/parse';
 
 export const LOG_OUT_START = 'LOG_OUT_START';
-export const LOG_OUT_COMPLETED = 'LOG_OUT_COMPLETED';
-export const LOG_OUT_FAILED = 'LOG_OUT_FAILED';
+export const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS';
+export const LOG_OUT_ERROR = 'LOG_OUT_ERROR';
 
 
 export function logOutStart() {
@@ -15,15 +15,15 @@ export function logOutStart() {
     };
 }
 
-export function logOutCompleted() {
+export function logOutSuccess() {
     return {
-        type: LOG_OUT_COMPLETED
+        type: LOG_OUT_SUCCESS
     };
 }
 
-export function logOutFailed(error) {
+export function logOutError(error) {
     return {
-        type: LOG_OUT_FAILED,
+        type: LOG_OUT_ERROR,
         error
     };
 }
@@ -33,9 +33,9 @@ export function logOut() {
         dispatch(logOutStart());
 
         return Parse.User.logOut().then(() => {
-            dispatch(logOutCompleted());
+            dispatch(logOutSuccess());
         }, error => {
-            dispatch(logOutFailed(error));
+            dispatch(logOutError(error));
         });
     };
 }

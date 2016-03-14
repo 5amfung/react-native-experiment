@@ -6,11 +6,11 @@ jest.unmock('../logout-actions');
 
 import {
     LOG_OUT_START,
-    LOG_OUT_COMPLETED,
-    LOG_OUT_FAILED,
+    LOG_OUT_SUCCESS,
+    LOG_OUT_ERROR,
     logOutStart,
-    logOutCompleted,
-    logOutFailed
+    logOutSuccess,
+    logOutError
 } from '../logout-actions';
 
 
@@ -23,20 +23,20 @@ describe('log out actions', () => {
         expect(logOutStart()).toEqual(action);
     });
 
-    it('returns log out completed action', () => {
+    it('returns log out success action', () => {
         const action = {
-            type: LOG_OUT_COMPLETED
+            type: LOG_OUT_SUCCESS
         };
-        expect(logOutCompleted().toEqual(action));
+        expect(logOutSuccess().toEqual(action));
     });
 
-    it('returns log out failed action', () => {
+    it('returns log out error action', () => {
         const error = {};
         const action = {
-            type: LOG_OUT_FAILED,
+            type: LOG_OUT_ERROR,
             error
         };
-        expect(logOutFailed(error)).toEqual(action);
+        expect(logOutError(error)).toEqual(action);
     });
 
     it('logs out user', () => {

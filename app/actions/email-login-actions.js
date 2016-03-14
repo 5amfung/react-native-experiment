@@ -5,8 +5,8 @@
 import Parse from '../utils/parse';
 
 export const EMAIL_LOGIN_START = 'EMAIL_LOGIN_START';
-export const EMAIL_LOGIN_COMPLETED = 'EMAIL_LOGIN_COMPLETED';
-export const EMAIL_LOGIN_FAILED = 'EMAIL_LOGIN_FAILED';
+export const EMAIL_LOGIN_SUCCESS = 'EMAIL_LOGIN_SUCCESS';
+export const EMAIL_LOGIN_ERROR = 'EMAIL_LOGIN_ERROR';
 
 
 export function emailLoginStart() {
@@ -15,16 +15,16 @@ export function emailLoginStart() {
     };
 }
 
-export function emailLoginCompleted(user) {
+export function emailLoginSuccess(user) {
     return {
-        type: EMAIL_LOGIN_COMPLETED,
+        type: EMAIL_LOGIN_SUCCESS,
         user
     };
 }
 
-export function emailLoginFailed(error) {
+export function emailLoginError(error) {
     return {
-        type: EMAIL_LOGIN_FAILED,
+        type: EMAIL_LOGIN_ERROR,
         error
     };
 }
@@ -33,9 +33,9 @@ export function emailLogin({ email, password }) {
     return (dispatch) => {
         dispatch(emailLoginStart());
         return Parse.User.logIn(email, password).then(user => {
-            dispatch(emailLoginCompleted(user));
+            dispatch(emailLoginSuccess(user));
         }, error => {
-            dispatch(emailLoginFailed(error));
+            dispatch(emailLoginError(error));
         });
     };
 }
