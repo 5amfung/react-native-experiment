@@ -1,5 +1,5 @@
 /**
- * Actions for email login.
+ * Email log in actions.
  */
 
 import Parse from '../utils/parse';

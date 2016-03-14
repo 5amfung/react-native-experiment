@@ -1,5 +1,5 @@
 /**
- * Logout action.
+ * Log out actions.
  */
 
 import Parse from '../utils/parse';

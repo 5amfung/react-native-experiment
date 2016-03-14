@@ -6,7 +6,7 @@ import {
     LOG_OUT_START,
     LOG_OUT_COMPLETED,
     LOG_OUT_FAILED
-} from '../actions/log-out-actions';
+} from '../actions/logout-actions';
 
 
 const initialState = {
