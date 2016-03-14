@@ -2,9 +2,10 @@
  * Tab Bar (iOS specific).
  */
 
-import React, { Component, TabBarIOS } from 'react-native';
-import { CaptureRoot, NotificationsRoot, ProfileRoot, SearchRoot, StoresRoot } from './tabs';
+import React, { Component, StyleSheet, TabBarIOS } from 'react-native';
+import ExNavigator from '@exponent/react-native-navigator';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import Router from '../utils/router';
 
 export default class TabBar extends Component {
 
@@ -23,41 +24,74 @@ export default class TabBar extends Component {
         return this.state.selectedTab === name;
     }
 
-    /**
-     * Render the tab bar item.
-     *
-     * @param name a unique name for the tab bar item
-     * @param title a tab title
-     * @param iconName a icon name
-     * @param badge null would not render the badge, otherwise it takes a number or a string
-     * @param Child a child component
-     * @returns {XML}
-     */
-    _renderTabBarItem(name, title, iconName, badge, Child) {
-        // MaterialIcon.TabBarItemIOS is wrapper of React Native's TabBarIOS.Item with
-        // 3 additional settings: iconName, selectedIconName, and iconSize.
-        return (
-            <MaterialIcon.TabBarItemIOS title={title}
-                                        iconName={iconName}
-                                        badge={badge}
-                                        selected={this._isTabSelected(name)}
-                                        onPress={() => {
-                                            this._selectTab(name);
-                                        }}>
-                <Child/>
-            </MaterialIcon.TabBarItemIOS>
-        );
-    }
-
     render() {
         return (
             <TabBarIOS selectedTab={this.state.selectedTab}>
-                {this._renderTabBarItem('stores', 'Stores', 'store', null, StoresRoot)}
-                {this._renderTabBarItem('notifications', 'Notifications', 'notifications', 2, NotificationsRoot)}
-                {this._renderTabBarItem('search', 'Search', 'search', null, SearchRoot)}
-                {this._renderTabBarItem('capture', 'Capture', 'photo-camera', null, CaptureRoot)}
-                {this._renderTabBarItem('profile', 'Profile', 'sentiment-very-satisfied', null, ProfileRoot)}
+                <MaterialIcon.TabBarItemIOS title='Stores'
+                                            iconName='store'
+                                            selected={this._isTabSelected('stores')}
+                                            onPress={() => {
+                                                this._selectTab('stores');
+                                            }}>
+                    <ExNavigator initialRoute={Router.Stores()}
+                                 style={styles.navigator}
+                                 sceneStyle={styles.scene} />
+                </MaterialIcon.TabBarItemIOS>
+
+                <MaterialIcon.TabBarItemIOS title='Notifications'
+                                            iconName='notifications'
+                                            badge='2'
+                                            selected={this._isTabSelected('notifications')}
+                                            onPress={() => {
+                                                this._selectTab('notifications');
+                                            }}>
+                    <ExNavigator initialRoute={Router.Notifications()}
+                                 style={styles.navigator}
+                                 sceneStyle={styles.scene} />
+                </MaterialIcon.TabBarItemIOS>
+
+                <MaterialIcon.TabBarItemIOS title='Search'
+                                            iconName='search'
+                                            selected={this._isTabSelected('search')}
+                                            onPress={() => {
+                                                this._selectTab('search');
+                                            }}>
+                    <ExNavigator initialRoute={Router.Search()}
+                                 style={styles.navigator}
+                                 sceneStyle={styles.scene} />
+                </MaterialIcon.TabBarItemIOS>
+
+                <MaterialIcon.TabBarItemIOS title='Capture'
+                                            iconName='photo-camera'
+                                            selected={this._isTabSelected('camera')}
+                                            onPress={() => {
+                                                this._selectTab('camera');
+                                            }}>
+                    <ExNavigator initialRoute={Router.Capture()}
+                                 style={styles.navigator}
+                                 sceneStyle={styles.scene} />
+                </MaterialIcon.TabBarItemIOS>
+
+                <MaterialIcon.TabBarItemIOS title='Profile'
+                                            iconName='sentiment-very-satisfied'
+                                            selected={this._isTabSelected('profile')}
+                                            onPress={() => {
+                                                this._selectTab('profile');
+                                            }}>
+                    <ExNavigator initialRoute={Router.Profile()}
+                                 style={styles.navigator}
+                                 sceneStyle={styles.scene} />
+                </MaterialIcon.TabBarItemIOS>
             </TabBarIOS>
         );
     }
 }
+
+let styles = StyleSheet.create({
+    navigator: {
+        flex: 1
+    },
+    scene: {
+        paddingTop: 64
+    }
+});
