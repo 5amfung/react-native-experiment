@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
     "lint": "eslint -c ./.eslintrc.json index.ios.js index.android.js app/",
-    "test": "jest --coverage",
+    "test": "jest --coverage --no-cache",
     "test-watch": "jest --watch"
   },
   "dependencies": {

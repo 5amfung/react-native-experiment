@@ -1,6 +1,8 @@
 /**
- * Tests for email-login.js.
+ * Tests for email-login-actions.js.
  */
+
+jest.unmock('../email-login-actions');
 
 import {
     EMAIL_LOGIN_START,
@@ -11,18 +13,17 @@ import {
     emailLoginFailed
 } from '../email-login-actions';
 
-jest.unmock('../email-login');
 
 describe('email login actions', () => {
 
-    it('emailLoginStart', () => {
+    it('returns email login start action', () => {
         const action = {
             type: EMAIL_LOGIN_START
         };
         expect(emailLoginStart()).toEqual(action);
     });
 
-    it('emailLoginCompleted', () => {
+    it('returns email login completed action', () => {
         const user = {};
         const action = {
             type: EMAIL_LOGIN_COMPLETED,
@@ -31,18 +32,12 @@ describe('email login actions', () => {
         expect(emailLoginCompleted(user)).toEqual(action);
     });
 
-    it('emailLoginFailed', () => {
+    it('returns email login failed action', () => {
         const error = {};
         const action = {
             type: EMAIL_LOGIN_FAILED,
             error
         };
         expect(emailLoginFailed(error)).toEqual(action);
-    });
-
-    it('emailLogin', () => {
-
-        // TODO: Implement.
-
     });
 });
