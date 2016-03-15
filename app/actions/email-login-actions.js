@@ -30,7 +30,7 @@ export function emailLoginError(error) {
 }
 
 export function emailLogin({ email, password }) {
-    return (dispatch) => {
+    return dispatch => {
         dispatch(emailLoginStart());
         return Parse.User.logIn(email, password).then(user => {
             dispatch(emailLoginSuccess(user));
