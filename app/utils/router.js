@@ -7,10 +7,19 @@ import Notifications from '../components/notifications';
 import Profile from '../components/profile';
 import Search from '../components/search';
 import Stores from '../components/stores';
+import TabBar from '../components/tabbar.ios';
 
 
 let Router = {
-    Stores() {
+    MainRoute() {
+        return {
+            getSceneClass() {
+                return TabBar;
+            }
+        };
+    },
+
+    StoresRoute() {
         return {
             getSceneClass() {
                 return Stores;
@@ -21,7 +30,7 @@ let Router = {
         };
     },
 
-    Notifications() {
+    NotificationsRoute() {
         return {
             getSceneClass() {
                 return Notifications;
@@ -32,7 +41,7 @@ let Router = {
         };
     },
 
-    Search() {
+    SearchRoute() {
         return {
             getSceneClass() {
                 return Search;
@@ -43,7 +52,7 @@ let Router = {
         };
     },
 
-    Capture() {
+    CaptureRoute() {
         return {
             getSceneClass() {
                 return Capture;
@@ -54,7 +63,7 @@ let Router = {
         };
     },
 
-    Profile() {
+    ProfileRoute() {
         return {
             getSceneClass() {
                 return Profile;

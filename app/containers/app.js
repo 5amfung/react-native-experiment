@@ -3,12 +3,13 @@
  */
 
 import React, { Component } from 'react-native';
+import ExNavigator from '@exponent/react-native-navigator';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
 import * as reducers from '../reducers';
-import TabBar from '../components/tabbar.ios';
+import Router from '../utils/router';
 
 // Uncomment devTools() to debug redux states locally.  Not advised for production.
 // import devTools from 'remote-redux-devtools';
@@ -22,7 +23,7 @@ export default class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <TabBar/>
+                <ExNavigator showNavigationBar={false} initialRoute={Router.MainRoute()} />
             </Provider>
         );
     }

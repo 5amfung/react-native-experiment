@@ -33,7 +33,7 @@ export default class TabBar extends Component {
                                             onPress={() => {
                                                 this._selectTab('stores');
                                             }}>
-                    <ExNavigator initialRoute={Router.Stores()}
+                    <ExNavigator initialRoute={Router.StoresRoute()}
                                  style={styles.navigator}
                                  sceneStyle={styles.scene} />
                 </MaterialIcon.TabBarItemIOS>
@@ -45,7 +45,7 @@ export default class TabBar extends Component {
                                             onPress={() => {
                                                 this._selectTab('notifications');
                                             }}>
-                    <ExNavigator initialRoute={Router.Notifications()}
+                    <ExNavigator initialRoute={Router.NotificationsRoute()}
                                  style={styles.navigator}
                                  sceneStyle={styles.scene} />
                 </MaterialIcon.TabBarItemIOS>
@@ -56,7 +56,7 @@ export default class TabBar extends Component {
                                             onPress={() => {
                                                 this._selectTab('search');
                                             }}>
-                    <ExNavigator initialRoute={Router.Search()}
+                    <ExNavigator initialRoute={Router.SearchRoute()}
                                  style={styles.navigator}
                                  sceneStyle={styles.scene} />
                 </MaterialIcon.TabBarItemIOS>
@@ -67,7 +67,7 @@ export default class TabBar extends Component {
                                             onPress={() => {
                                                 this._selectTab('camera');
                                             }}>
-                    <ExNavigator initialRoute={Router.Capture()}
+                    <ExNavigator initialRoute={Router.CaptureRoute()}
                                  style={styles.navigator}
                                  sceneStyle={styles.scene} />
                 </MaterialIcon.TabBarItemIOS>
@@ -78,7 +78,7 @@ export default class TabBar extends Component {
                                             onPress={() => {
                                                 this._selectTab('profile');
                                             }}>
-                    <ExNavigator initialRoute={Router.Profile()}
+                    <ExNavigator initialRoute={Router.ProfileRoute()}
                                  style={styles.navigator}
                                  sceneStyle={styles.scene} />
                 </MaterialIcon.TabBarItemIOS>
