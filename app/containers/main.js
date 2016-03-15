@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import Router from '../utils/router';
 import { authenticate } from '../actions/authenticate-actions';
 
-export default class Main extends Component {
+class Main extends Component {
     componentWillMount() {
         // Check if user is authenticated.
         this.props.dispatch(authenticate());
