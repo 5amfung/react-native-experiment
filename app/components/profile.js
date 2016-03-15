@@ -28,13 +28,15 @@ export default class Profile extends Component {
     }
 
     render() {
-        // if (!this.state.authentication.authenticated) {
-        //     return this._renderRequiredLogIn();
-        // }
-
-        return this._renderProfile();
+        return this.props.authenticated ? this._renderProfile() : this._renderRequiredLogIn();
     }
 }
+Profile.propTypes = {
+    authenticated: React.PropTypes.bool
+};
+Profile.defaultProps = {
+    authenticated: false
+};
 
 let styles = StyleSheet.create({
     container: {
