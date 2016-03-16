@@ -2,7 +2,16 @@
  * Profile.
  */
 
-import React, { Component, StyleSheet, Text, View } from 'react-native';
+import React, {
+    Component,
+    PropTypes,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View
+} from 'react-native';
+import Button from 'react-native-button';
+import Router from '../utils/router';
 
 
 export default class Profile extends Component {
@@ -13,6 +22,16 @@ export default class Profile extends Component {
                 <Text style={styles.description}>
                     You need to log in.
                 </Text>
+                <TouchableOpacity onPress={() => { this.props.navigator.push(Router.LoginRoute()); }}>
+                    <Text style={styles.buttonText}>
+                        Log In
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => { this.props.navigator.push(Router.SignUpRoute()); }}>
+                    <Text style={styles.buttonText}>
+                        Sign Up
+                    </Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -32,7 +51,8 @@ export default class Profile extends Component {
     }
 }
 Profile.propTypes = {
-    authenticated: React.PropTypes.bool
+    authenticated: PropTypes.bool,
+    navigator: PropTypes.object.isRequired
 };
 Profile.defaultProps = {
     authenticated: false
@@ -41,10 +61,17 @@ Profile.defaultProps = {
 let styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        flexDirection: 'column',
+        justifyContent: 'center'
     },
     description: {
-        fontSize: 20
+        fontSize: 20,
+        textAlign: 'center'
+    },
+    buttonText: {
+        marginTop: 20,
+        marginBottom: 20,
+        color: '#0076ff',
+        textAlign: 'center'
     }
 });

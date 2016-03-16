@@ -9,8 +9,8 @@ import React, {
     TextInput,
     View
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { connect } from 'react-redux';
-import KeyboardHandler from '../components/keyboard-handler';
 import Button from 'react-native-button';
 import { emailLogin }  from '../actions/email-login-actions';
 
@@ -29,36 +29,23 @@ class Login extends Component {
         this.props.dispatch(emailLogin(this.state));
     }
 
-    /**
-     * Scroll up to input if it is covered by the keyboard.
-     *
-     * @param ref ref name
-     * @private
-     */
-    _scrollToInput(ref) {
-        this.refs.keyboardHandler.inputFocused(this, ref);
+    _handleFocus(event, refName) {
+        let node = React.findNodeHandle(this.refs[refName]);
+        let extraHeight = 100;
+        this.refs.keyboardAwareScrollView.scrollToFocusedInput(event, node, extraHeight);
     }
 
     render() {
         return (
-            <KeyboardHandler ref='keyboardHandler'
-                             style={styles.scrollViewContainer}
-                             keyboardDismissMode='interactive'
-                             keyboardShouldPersistTaps={true}>
+            <KeyboardAwareScrollView ref="keyboardAwareScrollView"
+                                     viewIsInsideTabBar={true}
+                                     keyboardShouldPersistTaps={true}>
                 <View style={styles.container}>
-                    <Text style={styles.welcome} allowFontScaling={false}>
-                        Welcome to Local Stores!
-                    </Text>
-                    <Text style={styles.instructions} allowFontScaling={false}>
-                        Save time.  Save money.
-                    </Text>
                     <View style={styles.inputContainer}>
                         <TextInput
                             ref='emailInput'
                             style={styles.input}
                             placeholder='Email'
-                            placeholderTextColor='#aaa'
-                            selectionColor='#fff'
                             autoCapitalize='none'
                             autoCorrect={false}
                             keyboardType='email-address'
@@ -70,8 +57,8 @@ class Login extends Component {
                             onSubmitEditing={() => {
                                 this.refs.passwordInput.focus();
                             }}
-                            onFocus={() => {
-                                this._scrollToInput('emailInput');
+                            onFocus={(event) => {
+                                this._handleFocus(event, 'emailInput');
                             }}
                         />
                     </View>
@@ -80,8 +67,6 @@ class Login extends Component {
                             ref='passwordInput'
                             style={styles.input}
                             placeholder='Password'
-                            placeholderTextColor='#aaa'
-                            selectionColor='#fff'
                             autoCapitalize='none'
                             autoCorrect={false}
                             secureTextEntry={true}
@@ -92,8 +77,8 @@ class Login extends Component {
                             onSubmitEditing={() => {
                                 this._handleSubmit();
                             }}
-                            onFocus={() => {
-                                this._scrollToInput('passwordInput');
+                            onFocus={(event) => {
+                                this._handleFocus(event, 'passwordInput');
                             }}
                         />
                     </View>
@@ -106,48 +91,34 @@ class Login extends Component {
                         </Text>
                     </Button>
                 </View>
-            </KeyboardHandler>
+            </KeyboardAwareScrollView>
         );
     }
 }
-Login.propTypes = { dispatch: React.PropTypes.func };
+Login.propTypes = {
+    dispatch: React.PropTypes.func.isRequired
+};
 export default connect()(Login);
 
 
 let styles = StyleSheet.create({
-    scrollViewContainer: {
-        backgroundColor: 'slategrey'
-    },
     container: {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'stretch',
-        marginTop: 100
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-        color: '#fff'
-    },
-    instructions: {
-        textAlign: 'center',
-        margin: 10,
-        color: '#fff'
+        marginTop: 5
     },
     inputContainer: {
         marginLeft: 16,
         marginRight: 16,
-        marginTop: 20,
-        marginBottom: 20,
+        marginTop: 10,
+        marginBottom: 10,
         borderWidth: 1,
-        borderBottomColor: '#fff',
-        borderColor: 'transparent'
+        borderColor: 'transparent',
+        borderBottomColor: 'lightgrey'
     },
     input: {
-        fontSize: 16,
-        color: '#fff',
         height: 20,
         marginBottom: 10
     },

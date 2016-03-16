@@ -8,6 +8,8 @@ import Profile from '../components/profile';
 import Search from '../components/search';
 import Stores from '../components/stores';
 import TabBar from '../containers/tabbar.ios.js';
+import Login from '../containers/login';
+import SignUp from '../containers/signup';
 
 
 let Router = {
@@ -70,6 +72,28 @@ let Router = {
             },
             getTitle() {
                 return 'Profile';
+            }
+        };
+    },
+
+    LoginRoute() {
+        return {
+            getSceneClass() {
+                return Login;
+            },
+            getTitle() {
+                return 'Log In';
+            }
+        };
+    },
+
+    SignUpRoute() {
+        return {
+            getSceneClass() {
+                return SignUp;
+            },
+            getTitle() {
+                return 'Sign Up';
             }
         };
     }

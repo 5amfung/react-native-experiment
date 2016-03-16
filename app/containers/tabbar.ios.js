@@ -2,7 +2,7 @@
  * Tab Bar (iOS specific).
  */
 
-import React, { Component, StyleSheet, TabBarIOS } from 'react-native';
+import React, { Component, PropTypes, StyleSheet, TabBarIOS } from 'react-native';
 import { connect } from 'react-redux';
 import ExNavigator from '@exponent/react-native-navigator';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -21,7 +21,7 @@ class TabBar extends Component {
     }
 
     _isTabSelected(name) {
-         return this.props.selectedTab === name;
+        return this.props.selectedTab === name;
     }
 
     render() {
@@ -86,13 +86,13 @@ class TabBar extends Component {
         );
     }
 }
-TabBar.propsTypes = {
-    selectedTab: React.PropTypes.string,
-    dispatch: React.PropTypes.func
+TabBar.propTypes = {
+    navigator: PropTypes.object.isRequired,
+    selectedTab: PropTypes.string,
+    dispatch: PropTypes.func.isRequired
 };
 TabBar.defaultProps = {
-    selectedTab: 'stores',
-    dispatch: () => {}
+    selectedTab: 'stores'
 };
 
 let mapStateToProps = state => {
