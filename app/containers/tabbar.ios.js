@@ -63,9 +63,9 @@ class TabBar extends Component {
 
                 <MaterialIcon.TabBarItemIOS title='Capture'
                                             iconName='photo-camera'
-                                            selected={this._isTabSelected('camera')}
+                                            selected={this._isTabSelected('capture')}
                                             onPress={() => {
-                                                this._selectTab('camera');
+                                                this._selectTab('capture');
                                             }}>
                     <ExNavigator initialRoute={Router.CaptureRoute()}
                                  style={styles.navigator}
@@ -78,7 +78,7 @@ class TabBar extends Component {
                                             onPress={() => {
                                                 this._selectTab('profile');
                                             }}>
-                    <ExNavigator initialRoute={Router.ProfileRoute(this.props.authenticated)}
+                    <ExNavigator initialRoute={Router.ProfileRoute()}
                                  style={styles.navigator}
                                  sceneStyle={styles.scene} />
                 </MaterialIcon.TabBarItemIOS>
@@ -87,9 +87,9 @@ class TabBar extends Component {
     }
 }
 TabBar.propTypes = {
-    navigator: PropTypes.object.isRequired,
-    selectedTab: PropTypes.string,
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func,
+    navigator: PropTypes.object,
+    selectedTab: PropTypes.string
 };
 TabBar.defaultProps = {
     selectedTab: 'stores'
@@ -97,8 +97,7 @@ TabBar.defaultProps = {
 
 let mapStateToProps = state => {
     return {
-        selectedTab: state.ui.selectedTab,
-        authenticated: state.authentication.authenticated
+        selectedTab: state.ui.selectedTab
     };
 };
 

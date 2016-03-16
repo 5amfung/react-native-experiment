@@ -11,9 +11,11 @@ import React, {
     View
 } from 'react-native';
 import Router from '../utils/router';
+import { connect } from 'react-redux';
+import { logOut } from '../actions/logout-actions';
 
 
-export default class Profile extends Component {
+class Profile extends Component {
 
     _renderRequiredLogIn() {
         return (
@@ -41,6 +43,11 @@ export default class Profile extends Component {
                 <Text style={styles.description}>
                     Profile Tab
                 </Text>
+                <TouchableOpacity onPress={() => { this.props.dispatch(logOut()); }}>
+                    <Text style={styles.buttonText}>
+                        Log out
+                    </Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -51,11 +58,21 @@ export default class Profile extends Component {
 }
 Profile.propTypes = {
     authenticated: PropTypes.bool,
-    navigator: PropTypes.object.isRequired
+    dispatch: PropTypes.func,
+    navigator: PropTypes.object
 };
 Profile.defaultProps = {
     authenticated: false
 };
+
+let mapStateToProps = state => {
+    return {
+        authenticated: state.authentication.authenticated
+    };
+};
+
+export default connect(mapStateToProps)(Profile);
+
 
 let styles = StyleSheet.create({
     container: {

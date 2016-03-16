@@ -9,7 +9,7 @@ import Router from '../utils/router';
 import { authenticate } from '../actions/authenticate-actions';
 
 class Main extends Component {
-    componentWillMount() {
+    componentDidMount() {
         // Check if user is authenticated.
         this.props.dispatch(authenticate());
     }

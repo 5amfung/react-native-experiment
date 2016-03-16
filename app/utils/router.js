@@ -2,15 +2,16 @@
  * Navigation router.
  */
 
-import React from 'react-native';
+import React, { Text, TouchableOpacity } from 'react-native';
+
 import Capture from '../components/capture';
+import Login from '../containers/login';
 import Notifications from '../components/notifications';
 import Profile from '../components/profile';
 import Search from '../components/search';
+import SignUp from '../containers/signup';
 import Stores from '../components/stores';
 import TabBar from '../containers/tabbar.ios.js';
-import Login from '../containers/login';
-import SignUp from '../containers/signup';
 
 
 let Router = {
@@ -66,12 +67,10 @@ let Router = {
         };
     },
 
-    ProfileRoute(authenticated) {
+    ProfileRoute() {
         return {
-            renderScene(navigator) {
-                return (
-                    <Profile navigator={navigator} authenticated={authenticated}/>
-                );
+            getSceneClass() {
+                return Profile;
             },
             getTitle() {
                 return 'Profile';
