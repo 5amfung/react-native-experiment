@@ -2,7 +2,9 @@
  * UI actions.
  */
 
-// Log in.
+/**
+ * Email log in actions.
+ */
 export const SHOW_EMAIL_LOG_IN_ERROR = 'SHOW_EMAIL_LOG_IN_ERROR';
 export const HIDE_EMAIL_LOG_IN_ERROR = 'HIDE_EMAIL_LOG_IN_ERROR';
 
@@ -14,8 +16,9 @@ export function hideEmailLogInError() {
     return { type: HIDE_EMAIL_LOG_IN_ERROR };
 }
 
-
-// Sign up.
+/**
+ * Sign up actions.
+ */
 export const SHOW_EMAIL_SIGN_UP_ERROR = 'SHOW_EMAIL_SIGN_UP_ERROR';
 export const HIDE_EMAIL_SIGN_UP_ERROR = 'HIDE_EMAIL_SIGN_UP_ERROR';
 
@@ -25,4 +28,16 @@ export function showEmailSignUpError() {
 
 export function hideEmailSignUpError() {
     return { type: HIDE_EMAIL_SIGN_UP_ERROR };
+}
+
+/**
+ * Select tab.
+ */
+export const SELECT_TAB = 'SELECT_TAB';
+
+export function selectTab(name) {
+    return {
+        type: SELECT_TAB,
+        tab: name
+    };
 }

@@ -7,7 +7,7 @@ import Notifications from '../components/notifications';
 import Profile from '../components/profile';
 import Search from '../components/search';
 import Stores from '../components/stores';
-import TabBar from '../components/tabbar.ios';
+import TabBar from '../containers/tabbar.ios.js';
 
 
 let Router = {

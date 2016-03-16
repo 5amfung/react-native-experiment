@@ -6,13 +6,15 @@ import {
     SHOW_EMAIL_LOG_IN_ERROR,
     HIDE_EMAIL_LOG_IN_ERROR,
     SHOW_EMAIL_SIGN_UP_ERROR,
-    HIDE_EMAIL_SIGN_UP_ERROR
+    HIDE_EMAIL_SIGN_UP_ERROR,
+    SELECT_TAB
 } from '../actions/ui-actions';
 
 
 const initialState = {
     emailLogInErrorVisible: false,
-    emailSignUpErrorVisible: false
+    emailSignUpErrorVisible: false,
+    selectedTab: 'stores'
 };
 
 export default function ui(state = initialState, action) {
@@ -36,6 +38,11 @@ export default function ui(state = initialState, action) {
             return {
                 ...state,
                 emailSignUpErrorVisible: false
+            };
+        case SELECT_TAB:
+            return {
+                ...state,
+                selectedTab: action.tab
             };
         default:
             return state;

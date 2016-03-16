@@ -3,30 +3,30 @@
  */
 
 import React, { Component, StyleSheet, TabBarIOS } from 'react-native';
+import { connect } from 'react-redux';
 import ExNavigator from '@exponent/react-native-navigator';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Router from '../utils/router';
+import { selectTab } from '../actions/ui-actions';
 
-export default class TabBar extends Component {
+
+class TabBar extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            selectedTab: 'stores'
-        };
     }
 
     _selectTab(name) {
-        this.setState({ selectedTab: name });
+        this.props.dispatch(selectTab(name));
     }
 
     _isTabSelected(name) {
-        return this.state.selectedTab === name;
+         return this.props.selectedTab === name;
     }
 
     render() {
         return (
-            <TabBarIOS selectedTab={this.state.selectedTab}>
+            <TabBarIOS selectedTab={this.props.selectedTab}>
                 <MaterialIcon.TabBarItemIOS title='Stores'
                                             iconName='store'
                                             selected={this._isTabSelected('stores')}
@@ -86,6 +86,22 @@ export default class TabBar extends Component {
         );
     }
 }
+TabBar.propsTypes = {
+    selectedTab: React.PropTypes.string,
+    dispatch: React.PropTypes.func
+};
+TabBar.defaultProps = {
+    selectedTab: 'stores',
+    dispatch: () => {}
+};
+
+let mapStateToProps = state => {
+    return {
+        selectedTab: state.ui.selectedTab
+    };
+};
+
+export default connect(mapStateToProps)(TabBar);
 
 let styles = StyleSheet.create({
     navigator: {
