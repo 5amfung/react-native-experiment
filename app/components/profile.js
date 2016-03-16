@@ -10,7 +10,6 @@ import React, {
     TouchableOpacity,
     View
 } from 'react-native';
-import Button from 'react-native-button';
 import Router from '../utils/router';
 
 

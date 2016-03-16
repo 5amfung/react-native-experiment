@@ -11,7 +11,6 @@ import {
 
 const initialState = {
     inProgress: false,
-    user: null,
     error: null
 };
 
@@ -21,14 +20,12 @@ export default function emailSignUp(state = initialState, action) {
             return {
                 ...state,
                 inProgress: true,
-                user: null,
                 error: null
             };
         case EMAIL_SIGN_UP_SUCCESS:
             return {
                 ...state,
-                inProgress: false,
-                user: action.user
+                inProgress: false
             };
         case EMAIL_SIGN_UP_ERROR:
             return {

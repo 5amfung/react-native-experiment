@@ -78,7 +78,7 @@ class TabBar extends Component {
                                             onPress={() => {
                                                 this._selectTab('profile');
                                             }}>
-                    <ExNavigator initialRoute={Router.ProfileRoute()}
+                    <ExNavigator initialRoute={Router.ProfileRoute(this.props.authenticated)}
                                  style={styles.navigator}
                                  sceneStyle={styles.scene} />
                 </MaterialIcon.TabBarItemIOS>
@@ -97,7 +97,8 @@ TabBar.defaultProps = {
 
 let mapStateToProps = state => {
     return {
-        selectedTab: state.ui.selectedTab
+        selectedTab: state.ui.selectedTab,
+        authenticated: state.authentication.authenticated
     };
 };
 

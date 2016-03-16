@@ -2,6 +2,7 @@
  * Navigation router.
  */
 
+import React from 'react-native';
 import Capture from '../components/capture';
 import Notifications from '../components/notifications';
 import Profile from '../components/profile';
@@ -65,10 +66,12 @@ let Router = {
         };
     },
 
-    ProfileRoute() {
+    ProfileRoute(authenticated) {
         return {
-            getSceneClass() {
-                return Profile;
+            renderScene(navigator) {
+                return (
+                    <Profile navigator={navigator} authenticated={authenticated}/>
+                );
             },
             getTitle() {
                 return 'Profile';
