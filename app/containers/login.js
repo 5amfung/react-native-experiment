@@ -15,7 +15,7 @@ import Button from 'react-native-button';
 import { emailLogin }  from '../actions/email-login-actions';
 
 
-class Login extends Component {
+class LogIn extends Component {
 
     constructor(props) {
         super(props);
@@ -95,10 +95,10 @@ class Login extends Component {
         );
     }
 }
-Login.propTypes = {
-    dispatch: React.PropTypes.func.isRequired
+LogIn.propTypes = {
+    dispatch: React.PropTypes.func
 };
-export default connect()(Login);
+export default connect()(LogIn);
 
 
 let styles = StyleSheet.create({
@@ -133,7 +133,6 @@ let styles = StyleSheet.create({
         backgroundColor: 'lightslategrey'
     },
     button: {
-        fontSize: 16,
         textAlign: 'center',
         color: '#fff'
     }

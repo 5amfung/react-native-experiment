@@ -163,7 +163,7 @@ class SignUp extends Component {
     }
 }
 SignUp.propTypes = {
-    dispatch: React.PropTypes.func.isRequired
+    dispatch: React.PropTypes.func
 };
 export default connect()(SignUp);
 
@@ -199,7 +199,6 @@ let styles = StyleSheet.create({
         backgroundColor: 'lightslategrey'
     },
     button: {
-        fontSize: 16,
         textAlign: 'center',
         color: '#fff'
     }

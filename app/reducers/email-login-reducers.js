@@ -14,7 +14,7 @@ const initialState = {
     error: null
 };
 
-export default function emailLogin(state = initialState, action) {
+export default function emailLogIn(state = initialState, action) {
     switch (action.type) {
         case EMAIL_LOGIN_START:
             return {

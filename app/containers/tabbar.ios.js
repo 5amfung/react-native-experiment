@@ -12,10 +12,6 @@ import { selectTab } from '../actions/ui-actions';
 
 class TabBar extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     _selectTab(name) {
         this.props.dispatch(selectTab(name));
     }
@@ -108,6 +104,10 @@ let styles = StyleSheet.create({
         flex: 1
     },
     scene: {
-        paddingTop: 64
+        paddingTop: 64,
+        overflow: 'visible',
+        shadowColor: '#000',
+        shadowOpacity: 0.5,
+        shadowRadius: 6
     }
 });

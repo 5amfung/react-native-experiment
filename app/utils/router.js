@@ -2,12 +2,13 @@
  * Navigation router.
  */
 
-import React, { Text, TouchableOpacity } from 'react-native';
+import React from 'react-native';
+import ExNavigator from '@exponent/react-native-navigator';
 
 import Capture from '../components/capture';
 import Login from '../containers/login';
 import Notifications from '../components/notifications';
-import Profile from '../components/profile';
+import Profile from '../containers/profile';
 import Search from '../components/search';
 import SignUp from '../containers/signup';
 import Stores from '../components/stores';
@@ -15,7 +16,7 @@ import TabBar from '../containers/tabbar.ios.js';
 
 
 let Router = {
-    MainRoute() {
+    TabBarRoute() {
         return {
             getSceneClass() {
                 return TabBar;
@@ -78,7 +79,7 @@ let Router = {
         };
     },
 
-    LoginRoute() {
+    LogInRoute() {
         return {
             getSceneClass() {
                 return Login;

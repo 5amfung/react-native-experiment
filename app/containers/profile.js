@@ -23,12 +23,20 @@ class Profile extends Component {
                 <Text style={styles.description}>
                     You need to log in.
                 </Text>
-                <TouchableOpacity onPress={() => { this.props.navigator.push(Router.LoginRoute()); }}>
+                <TouchableOpacity
+                        onPress={() => {
+                            // TODO:
+                            console.log('Show log in modal.');
+                        }}>
                     <Text style={styles.buttonText}>
                         Log In
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { this.props.navigator.push(Router.SignUpRoute()); }}>
+                <TouchableOpacity
+                        onPress={() => {
+                            // TODO:
+                            console.log('show sign up modal.');
+                        }}>
                     <Text style={styles.buttonText}>
                         Sign Up
                     </Text>
@@ -60,9 +68,6 @@ Profile.propTypes = {
     authenticated: PropTypes.bool,
     dispatch: PropTypes.func,
     navigator: PropTypes.object
-};
-Profile.defaultProps = {
-    authenticated: false
 };
 
 let mapStateToProps = state => {
