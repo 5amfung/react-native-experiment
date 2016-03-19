@@ -2,7 +2,7 @@
  * Test for logout-actions.js.
  */
 
-jest.unmock('../logout-actions');
+jest.unmock('../logout');
 
 import {
     LOG_OUT_START,
@@ -11,7 +11,7 @@ import {
     logOutStart,
     logOutSuccess,
     logOutError
-} from '../logout-actions';
+} from '../logout';
 
 
 describe('log out actions', () => {

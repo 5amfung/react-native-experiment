@@ -9,9 +9,9 @@ import thunk from 'redux-thunk';
 import devTools from 'remote-redux-devtools';
 import ExNavigator from '@exponent/react-native-navigator';
 
-import { authenticate } from '../actions/authenticate-actions';
-import Router from '../utils/router';
-import * as reducers from '../reducers';
+import { authenticate } from './actions/authenticate';
+import Router from './utils/router';
+import * as reducers from './reducers';
 
 
 // Uncomment devTools() to debug redux states.  Not advised for production.
@@ -35,7 +35,7 @@ class _Main extends Component {
 
     componentDidMount() {
         // Check if user is authenticated.
-        this.props.dispatch(authenticate());
+        this.props.authenticate();
     }
 
     render() {
@@ -46,6 +46,14 @@ class _Main extends Component {
     }
 }
 _Main.propTypes = {
-    dispatch: React.PropTypes.func
+    authenticate: React.PropTypes.func
 };
-let Main = connect()(_Main);
+
+let mapDispatchToStates = dispatch => {
+    return {
+        authenticate: () => {
+            dispatch(authenticate());
+        }
+    };
+};
+let Main = connect(undefined, mapDispatchToStates)(_Main);

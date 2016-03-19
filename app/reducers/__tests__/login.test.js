@@ -2,15 +2,15 @@
  * Tests for email login reducer.
  */
 
-jest.unmock('../../actions/email-login-actions');
-jest.unmock('../email-login-reducers');
+jest.unmock('../../actions/login');
+jest.unmock('../login');
 
 import {
     emailLoginStart,
     emailLoginSuccess,
     emailLoginError
-} from '../../actions/email-login-actions';
-import emailLogin from '../email-login-reducers';
+} from '../../actions/login';
+import emailLogin from '../login';
 
 
 describe('email login reducers', () => {

@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import ExNavigator from '@exponent/react-native-navigator';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Router from '../utils/router';
-import { selectTab } from '../actions/ui-actions';
+import { selectTab } from '../actions/ui';
 
 
 class TabBar extends Component {

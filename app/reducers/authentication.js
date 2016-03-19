@@ -2,10 +2,10 @@
  * Authentication reducer.
  */
 
-import { AUTHENTICATE_START, AUTHENTICATE_SUCCESS, AUTHENTICATE_ERROR } from '../actions/authenticate-actions';
-import { EMAIL_LOGIN_ERROR, EMAIL_LOGIN_SUCCESS } from '../actions/email-login-actions';
-import { EMAIL_SIGN_UP_ERROR, EMAIL_SIGN_UP_SUCCESS } from '../actions/email-signup-actions';
-import { LOG_OUT_SUCCESS } from '../actions/logout-actions';
+import { AUTHENTICATE_START, AUTHENTICATE_SUCCESS, AUTHENTICATE_ERROR } from '../actions/authenticate';
+import { EMAIL_LOGIN_ERROR, EMAIL_LOGIN_SUCCESS } from '../actions/login';
+import { EMAIL_SIGN_UP_ERROR, EMAIL_SIGN_UP_SUCCESS } from '../actions/signup';
+import { LOG_OUT_SUCCESS } from '../actions/logout';
 
 const initialState = {
     inProgress: false,

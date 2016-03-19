@@ -2,7 +2,7 @@
  * Tests for email-signup-actions.js
  */
 
-jest.unmock('../email-signup-actions');
+jest.unmock('../signup');
 
 import {
     EMAIL_SIGN_UP_START,
@@ -11,7 +11,7 @@ import {
     emailSignUpStart,
     emailSignUpSuccess,
     emailSignUpError
-} from '../email-signup-actions';
+} from '../signup';
 
 
 describe('email sign up actions', () => {

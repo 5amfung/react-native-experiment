@@ -6,7 +6,7 @@ import {
     EMAIL_SIGN_UP_START,
     EMAIL_SIGN_UP_SUCCESS,
     EMAIL_SIGN_UP_ERROR
-} from '../actions/email-signup-actions';
+} from '../actions/signup';
 
 
 const initialState = {

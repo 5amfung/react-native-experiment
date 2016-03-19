@@ -1,12 +1,12 @@
 /**
- * Log out reducers.
+ * Email log in reducer.
  */
 
 import {
-    LOG_OUT_START,
-    LOG_OUT_SUCCESS,
-    LOG_OUT_ERROR
-} from '../actions/logout-actions';
+    EMAIL_LOGIN_START,
+    EMAIL_LOGIN_SUCCESS,
+    EMAIL_LOGIN_ERROR
+} from '../actions/login';
 
 
 const initialState = {
@@ -14,21 +14,20 @@ const initialState = {
     error: null
 };
 
-
-export default function logOut(state = initialState, action) {
+export default function emailLogIn(state = initialState, action) {
     switch (action.type) {
-        case LOG_OUT_START:
+        case EMAIL_LOGIN_START:
             return {
                 ...state,
                 inProgress: true,
                 error: null
             };
-        case LOG_OUT_SUCCESS:
+        case EMAIL_LOGIN_SUCCESS:
             return {
                 ...state,
                 inProgress: false
             };
-        case LOG_OUT_ERROR:
+        case EMAIL_LOGIN_ERROR:
             return {
                 ...state,
                 inProgress: false,

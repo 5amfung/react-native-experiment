@@ -2,16 +2,13 @@
  * Navigation router.
  */
 
-import React from 'react-native';
-import ExNavigator from '@exponent/react-native-navigator';
-
-import Capture from '../components/capture';
-import Login from '../containers/login';
-import Notifications from '../components/notifications';
-import Profile from '../containers/profile';
-import Search from '../components/search';
-import SignUp from '../containers/signup';
-import Stores from '../components/stores';
+import Capture from '../components/Capture';
+import Login from '../containers/LogIn';
+import Notifications from '../components/Notifications';
+import Profile from '../containers/Profile';
+import Search from '../components/Search';
+import SignUp from '../containers/SignUp';
+import Stores from '../components/Stores';
 import TabBar from '../containers/tabbar.ios.js';
 
 

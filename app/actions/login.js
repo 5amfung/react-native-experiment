@@ -29,7 +29,7 @@ export function emailLoginError(error) {
     };
 }
 
-export function emailLogin({ email, password }) {
+export function emailLogin(email, password) {
     return dispatch => {
         dispatch(emailLoginStart());
         return Parse.User.logIn(email, password).then(user => {

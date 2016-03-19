@@ -2,7 +2,7 @@
  * Tests for email-login-actions.js.
  */
 
-jest.unmock('../email-login-actions');
+jest.unmock('../login');
 
 import {
     EMAIL_LOGIN_START,
@@ -11,7 +11,7 @@ import {
     emailLoginStart,
     emailLoginSuccess,
     emailLoginError
-} from '../email-login-actions';
+} from '../login';
 
 
 describe('email login actions', () => {

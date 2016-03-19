@@ -8,7 +8,7 @@ import {
     SHOW_EMAIL_SIGN_UP_ERROR,
     HIDE_EMAIL_SIGN_UP_ERROR,
     SELECT_TAB
-} from '../actions/ui-actions';
+} from '../actions/ui';
 
 
 const initialState = {

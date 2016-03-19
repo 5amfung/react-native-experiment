@@ -2,11 +2,11 @@
  * Exports all reducers.
  */
 
-import authentication from './authentication-reducer';
-import emailLogIn from './email-login-reducers';
-import emailSignUp from './email-signup-reducers';
-import logOut from './logout-reducers';
-import ui from './ui-reducer';
+import authentication from './authentication';
+import emailLogIn from './login';
+import emailSignUp from './signup';
+import logOut from './logout';
+import ui from './ui';
 
 
 export {
