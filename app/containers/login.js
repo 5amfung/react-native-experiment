@@ -10,7 +10,7 @@ import logIn from '../actions/login';
 let mapDispatchToProps = dispatch => {
     return {
         handleSubmit: ({email, password}) => {
-            dispatch(LogIn(email, password));
+            dispatch(logIn(email, password));
         }
     };
 };
