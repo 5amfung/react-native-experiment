@@ -29,15 +29,3 @@ export function showEmailSignUpError() {
 export function hideEmailSignUpError() {
     return { type: HIDE_EMAIL_SIGN_UP_ERROR };
 }
-
-/**
- * Select tab.
- */
-export const SELECT_TAB = 'SELECT_TAB';
-
-export function selectTab(name) {
-    return {
-        type: SELECT_TAB,
-        tab: name
-    };
-}

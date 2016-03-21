@@ -42,7 +42,8 @@ export default class Profile extends Component {
                     Profile Tab
                 </Text>
                 <TouchableOpacity onPress={() => {
-                    this._logOut();
+                    // TODO
+                    console.log('log out.');
                 }}>
                     <Text style={styles.buttonText}>
                         Log out
@@ -55,14 +56,12 @@ export default class Profile extends Component {
     render() {
         return this.props.authenticated ? this._renderProfile() : this._renderRequiredLogIn();
     }
-
-    _logOut() {
-        this.props.logOut();
-    }
 }
 Profile.propTypes = {
-    authenticated: PropTypes.bool,
-    logOut: PropTypes.func
+    authenticated: PropTypes.bool
+};
+Profile.defaultProps = {
+    authenticated: false
 };
 
 let styles = StyleSheet.create({

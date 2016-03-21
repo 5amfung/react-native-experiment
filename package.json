@@ -9,7 +9,6 @@
     "test-watch": "jest --watch"
   },
   "dependencies": {
-    "@exponent/react-native-navigator": "^0.4.2",
     "parse": "1.7.1",
     "react-native": "^0.21.0",
     "react-native-button": "^1.4.2",

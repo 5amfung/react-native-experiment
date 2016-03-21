@@ -3,10 +3,10 @@
  */
 
 import { NavigationExperimental } from 'react-native';
-const { Reducer: NavigationReducer } = NavigationExperimental;
+const { Reducer } = NavigationExperimental;
 
 
-let navigationReducer = NavigationReducer.TabsReducer({
+let navigationReducer = Reducer.TabsReducer({
     key: 'navigationState',
     initialIndex: 0,
     tabReducers: [

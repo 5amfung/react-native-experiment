@@ -3,7 +3,7 @@
  */
 
 import { AppRegistry } from 'react-native';
-import App from './app/app';
+import App from './app/App';
 
 
 AppRegistry.registerComponent('LocalStores', () => App);
