@@ -19,20 +19,20 @@ class Main extends Component {
 
     render() {
         return (
-            <TabBar selectedTabIndex={this.props.selectedTabIndex}
+            <TabBar navigationState={this.props.navigationState}
                     selectTabIndex={this.props.selectTabIndex}/>
         );
     }
 }
 Main.propTypes = {
     authenticate: React.PropTypes.func,
-    selectedTabIndex: React.PropTypes.number,
+    navigationState: React.PropTypes.object,
     selectTabIndex: React.PropTypes.func
 };
 
 let mapStateToProps = state => {
     return {
-        selectedTabIndex: state.navigation.index
+        navigationState: state.navigation
     };
 };
 
@@ -41,7 +41,7 @@ let mapDispatchToProps = dispatch => {
         authenticate: () => {
             dispatch(authenticate());
         },
-        selectTabIndex: index => {
+        selectTabIndex: (index) => {
             dispatch(Reducer.TabsReducer.JumpToAction(index));
         }
     };
