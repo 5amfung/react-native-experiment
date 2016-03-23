@@ -78,7 +78,7 @@ export default class LogIn extends Component {
     }
 
     _handleSubmit() {
-        this.props.handleSubmit(this.state);
+        this.props.handleSubmit(this.state.email, this.state.password);
     }
 
     _handleFocus(event, refName) {

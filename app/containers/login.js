@@ -4,14 +4,15 @@
 
 import { connect } from 'react-redux';
 import LogIn from '../components/LogIn';
-import logIn from '../actions/login';
+import { emailLogIn } from '../actions/login';
 
 
-let mapDispatchToProps = dispatch => {
+let mapDispatchToProps = (dispatch) => {
     return {
-        handleSubmit: ({email, password}) => {
-            dispatch(logIn(email, password));
+        handleSubmit: (email, password) => {
+            console.log('dispatch login');
+            dispatch(emailLogIn(email, password));
         }
     };
 };
-export default connect(undefined, mapDispatchToProps())(LogIn);
+export default connect(undefined, mapDispatchToProps)(LogIn);

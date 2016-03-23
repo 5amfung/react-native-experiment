@@ -9,33 +9,33 @@ export const EMAIL_LOGIN_SUCCESS = 'EMAIL_LOGIN_SUCCESS';
 export const EMAIL_LOGIN_ERROR = 'EMAIL_LOGIN_ERROR';
 
 
-export function emailLoginStart() {
+export function emailLogInStart() {
     return {
         type: EMAIL_LOGIN_START
     };
 }
 
-export function emailLoginSuccess(user) {
+export function emailLogInSuccess(user) {
     return {
         type: EMAIL_LOGIN_SUCCESS,
         user
     };
 }
 
-export function emailLoginError(error) {
+export function emailLogInError(error) {
     return {
         type: EMAIL_LOGIN_ERROR,
         error
     };
 }
 
-export function emailLogin(email, password) {
-    return dispatch => {
-        dispatch(emailLoginStart());
+export function emailLogIn(email, password) {
+    return (dispatch) => {
+        dispatch(emailLogInStart());
         return Parse.User.logIn(email, password).then(user => {
-            dispatch(emailLoginSuccess(user));
+            dispatch(emailLogInSuccess(user));
         }, error => {
-            dispatch(emailLoginError(error));
+            dispatch(emailLogInError(error));
         });
     };
 }
