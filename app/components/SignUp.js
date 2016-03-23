@@ -164,7 +164,7 @@ let styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'stretch',
-        marginTop: 5
+        marginTop: 70
     },
     inputContainer: {
         marginLeft: 16,

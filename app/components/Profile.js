@@ -3,6 +3,7 @@
  */
 
 import React, { Component, PropTypes, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 
 export default class Profile extends Component {
@@ -15,8 +16,7 @@ export default class Profile extends Component {
                 </Text>
                 <TouchableOpacity
                         onPress={() => {
-                            // TODO:
-                            console.log('Show log in modal.');
+                            Actions.login();
                         }}>
                     <Text style={styles.buttonText}>
                         Log In
@@ -24,8 +24,7 @@ export default class Profile extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity
                         onPress={() => {
-                            // TODO:
-                            console.log('show sign up modal.');
+                            Actions.signUp();
                         }}>
                     <Text style={styles.buttonText}>
                         Sign Up

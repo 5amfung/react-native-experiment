@@ -1,5 +1,5 @@
 /**
- * Tab icon.
+ * Tab icons.
  */
 
 import React, { Component, StyleSheet, Text, View } from 'react-native';
@@ -28,10 +28,6 @@ TabIcon.propTypes = {
     iconName: React.PropTypes.string.isRequired,
     selected: React.PropTypes.bool,
     title: React.PropTypes.string
-};
-TabIcon.defaultProps = {
-    selected: false,
-    title: ''
 };
 
 const styles = StyleSheet.create({
