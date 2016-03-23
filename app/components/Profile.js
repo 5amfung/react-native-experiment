@@ -4,6 +4,7 @@
 
 import React, { Component, PropTypes, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 
 export default class Profile extends Component {
@@ -14,18 +15,12 @@ export default class Profile extends Component {
                 <Text style={styles.description}>
                     You need to log in.
                 </Text>
-                <TouchableOpacity
-                        onPress={() => {
-                            Actions.login();
-                        }}>
+                <TouchableOpacity onPress={this.props.showLogInModal}>
                     <Text style={styles.buttonText}>
                         Log In
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                        onPress={() => {
-                            Actions.signUp();
-                        }}>
+                <TouchableOpacity onPress={this.props.showSignUpModal}>
                     <Text style={styles.buttonText}>
                         Sign Up
                     </Text>
@@ -37,12 +32,15 @@ export default class Profile extends Component {
     _renderProfile() {
         return (
             <View style={styles.container}>
+                <Spinner visible={this.props.loggingOut}/>
                 <Text style={styles.description}>
                     Profile Tab
                 </Text>
                 <TouchableOpacity onPress={() => {
-                    // TODO
+                    // TODO: Show confirmation.
+
                     console.log('log out.');
+                    this.props.logOut();
                 }}>
                     <Text style={styles.buttonText}>
                         Log out
@@ -57,10 +55,15 @@ export default class Profile extends Component {
     }
 }
 Profile.propTypes = {
-    authenticated: PropTypes.bool
+    authenticated: PropTypes.bool,
+    logOut: PropTypes.func,
+    loggingOut: PropTypes.bool,
+    showLogInModal: PropTypes.func,
+    showSignUpModal: PropTypes.func
 };
 Profile.defaultProps = {
-    authenticated: false
+    authenticated: false,
+    loggingOut: false
 };
 
 let styles = StyleSheet.create({

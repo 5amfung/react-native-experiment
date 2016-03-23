@@ -1,5 +1,5 @@
 /**
- * Login container.
+ * LogIn container.
  */
 
 import { connect } from 'react-redux';

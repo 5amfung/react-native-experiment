@@ -10,7 +10,7 @@ import { Actions, Scene, Reducer, Router, TabBar, Modal } from 'react-native-rou
 
 import Capture from './components/Capture';
 import Notifications from './components/Notifications';
-import Profile from './components/Profile';
+import Profile from './containers/Profile';
 import Search from './components/Search';
 import Stores from './components/Stores';
 import { StoreTabIcon, NotificationTabIcon, SearchTabIcon, CameraTabIcon, ProfileTabIcon } from './components/TabIcon';

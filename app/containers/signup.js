@@ -1,5 +1,5 @@
 /**
- * Sign up container.
+ * SignUp container.
  */
 
 import { connect } from 'react-redux';
