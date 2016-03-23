@@ -3,11 +3,12 @@
  */
 
 import Parse from '../utils/parse';
+import { Actions } from 'react-native-router-flux';
+
 
 export const EMAIL_LOGIN_START = 'EMAIL_LOGIN_START';
 export const EMAIL_LOGIN_SUCCESS = 'EMAIL_LOGIN_SUCCESS';
 export const EMAIL_LOGIN_ERROR = 'EMAIL_LOGIN_ERROR';
-
 
 export function emailLogInStart() {
     return {
@@ -34,6 +35,9 @@ export function emailLogIn(email, password) {
         dispatch(emailLogInStart());
         return Parse.User.logIn(email, password).then(user => {
             dispatch(emailLogInSuccess(user));
+
+            // Hacky.  Assuming log in is always done in a modal.
+            Actions.pop();
         }, error => {
             dispatch(emailLogInError(error));
         });

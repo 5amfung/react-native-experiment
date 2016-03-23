@@ -5,6 +5,7 @@
 import React, { Component, StyleSheet, Text, TextInput, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Button from 'react-native-button';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 
 export default class LogIn extends Component {
@@ -22,6 +23,7 @@ export default class LogIn extends Component {
             <KeyboardAwareScrollView ref="keyboardAwareScrollView"
                                      viewIsInsideTabBar={true}
                                      keyboardShouldPersistTaps={true}>
+                <Spinner visible={this.props.loading}/>
                 <View style={styles.container}>
                     <View style={styles.inputContainer}>
                         <TextInput
@@ -88,7 +90,11 @@ export default class LogIn extends Component {
     }
 }
 LogIn.propTypes = {
-    handleSubmit: React.PropTypes.func
+    handleSubmit: React.PropTypes.func,
+    loading: React.PropTypes.bool
+};
+LogIn.defaultProps = {
+    loading: false
 };
 
 let styles = StyleSheet.create({

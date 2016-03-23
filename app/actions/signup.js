@@ -3,11 +3,12 @@
  */
 
 import Parse from '../utils/parse';
+import { Actions } from 'react-native-router-flux';
+
 
 export const EMAIL_SIGN_UP_START = 'EMAIL_SIGN_UP_START';
 export const EMAIL_SIGN_UP_SUCCESS = 'EMAIL_SIGN_UP_SUCCESS';
 export const EMAIL_SIGN_UP_ERROR = 'EMAIL_SIGN_UP_ERROR';
-
 
 export function emailSignUpStart() {
     return {
@@ -43,6 +44,9 @@ export function emailSignUp({ email, password, firstName, lastName }) {
         });
         user.signUp().then(user => {
             dispatch(emailSignUpSuccess(user));
+
+            // Hacky.  Assuming sign up is always done in a modal.
+            Actions.pop();
         }, error => {
             dispatch(emailSignUpError(error));
         });

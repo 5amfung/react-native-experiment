@@ -7,12 +7,16 @@ import LogIn from '../components/LogIn';
 import { emailLogIn } from '../actions/login';
 
 
+let mapStateToProps = (state) => {
+    return {
+        loading: state.emailLogIn.inProgress
+    };
+};
 let mapDispatchToProps = (dispatch) => {
     return {
         handleSubmit: (email, password) => {
-            console.log('dispatch login');
             dispatch(emailLogIn(email, password));
         }
     };
 };
-export default connect(undefined, mapDispatchToProps)(LogIn);
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

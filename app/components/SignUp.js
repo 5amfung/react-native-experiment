@@ -5,6 +5,7 @@
 import React, { Component, StyleSheet, Text, TextInput, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Button from 'react-native-button';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 
 export default class SignUp extends Component {
@@ -20,21 +21,12 @@ export default class SignUp extends Component {
         };
     }
 
-    _handleSubmit() {
-        this.props.handleSubmit(this.state);
-    }
-
-    _handleFocus(event, refName) {
-        let node = React.findNodeHandle(this.refs[refName]);
-        let extraHeight = 100;
-        this.refs.keyboardAwareScrollView.scrollToFocusedInput(event, node, extraHeight);
-    }
-
     render() {
         return (
             <KeyboardAwareScrollView ref='keyboardAwareScrollView'
                                      viewIsInsideTabBar={true}
                                      keyboardShouldPersistTaps={true}>
+                <Spinner visible={this.props.loading}/>
                 <View style={styles.container}>
                     <View style={styles.inputContainer}>
                         <TextInput
@@ -153,9 +145,23 @@ export default class SignUp extends Component {
             </KeyboardAwareScrollView>
         );
     }
+
+    _handleSubmit() {
+        this.props.handleSubmit(this.state);
+    }
+
+    _handleFocus(event, refName) {
+        let node = React.findNodeHandle(this.refs[refName]);
+        let extraHeight = 100;
+        this.refs.keyboardAwareScrollView.scrollToFocusedInput(event, node, extraHeight);
+    }
 }
 SignUp.propTypes = {
-    handleSubmit: React.PropTypes.func
+    handleSubmit: React.PropTypes.func,
+    loading: React.PropTypes.bool
+};
+SignUp.defaultProps = {
+    loading: false
 };
 
 let styles = StyleSheet.create({

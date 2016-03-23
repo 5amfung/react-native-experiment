@@ -7,6 +7,11 @@ import SignUp from '../components/SignUp';
 import { emailSignUp } from '../actions/signup';
 
 
+let mapStateToProps = (state) => {
+    return {
+        loading: state.emailLogIn.inProgress
+    };
+};
 let mapDispatchToProps = dispatch => {
     return {
         handleSubmit: input => {
@@ -15,4 +20,4 @@ let mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(undefined, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
