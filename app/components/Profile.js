@@ -38,8 +38,6 @@ export default class Profile extends Component {
                 </Text>
                 <TouchableOpacity onPress={() => {
                     // TODO: Show confirmation.
-
-                    console.log('log out.');
                     this.props.logOut();
                 }}>
                     <Text style={styles.buttonText}>

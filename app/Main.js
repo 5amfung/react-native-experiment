@@ -10,6 +10,7 @@ import { Actions, Scene, Reducer, Router } from 'react-native-router-flux';
 
 import Capture from './components/Capture';
 import Notifications from './components/Notifications';
+import Location from './components/Location';
 import Profile from './containers/Profile';
 import Search from './components/Search';
 import Stores from './components/Stores';
@@ -35,33 +36,32 @@ class Main extends Component {
         this.props.authenticate();
     }
 
+    _pop() {
+        Actions.pop();
+    }
+
     render() {
         return (
             <Router createReducer={createNavigationReducer}>
                 <Scene key='root' hideNavBar={true}>
                     <Scene key='tabbar' tabs={true} default='storesTab'>
-                        <Scene key='storesTab' title='Stores' icon={StoreTabIcon}
-                               initial={true} component={Stores}/>
-                        <Scene key='notificationsTab' title='Notifications'
-                               icon={NotificationTabIcon} component={Notifications}/>
-                        <Scene key='searchTab' title='Search'
-                               icon={SearchTabIcon} component={Search}/>
-                        <Scene key='captureTab' title='Capture'
-                               icon={CameraTabIcon} component={Capture}/>
-                        <Scene key='profileTab' title='Profile'
-                               icon={ProfileTabIcon} component={Profile}/>
+                        <Scene key='storesTab' title='Stores' icon={StoreTabIcon} initial={true} component={Stores}/>
+                        <Scene key='notificationsTab' title='Notifications' icon={NotificationTabIcon} component={Notifications}/>
+                        <Scene key='searchTab' title='Search' icon={SearchTabIcon} component={Search}/>
+                        <Scene key='captureTab' title='Capture' icon={CameraTabIcon} component={Capture}/>
+                        <Scene key='profileTab' title='Profile' icon={ProfileTabIcon} component={Profile}/>
+                    </Scene>
+                    <Scene key="location" direction='vertical'>
+                        <Scene key='locationModal' title='Location' component={Location} schema='modal' leftTitle='Cancel'
+                               onLeft={this._pop.bind(this)}/>
                     </Scene>
                     <Scene key='login' direction='vertical'>
                         <Scene key="loginModal" title="Log In" component={LogIn} schema='modal' leftTitle='Cancel'
-                               onLeft={() => {
-                                   Actions.pop();
-                               }}/>
+                               onLeft={this._pop.bind(this)}/>
                     </Scene>
                     <Scene key='signUp' direction='vertical'>
                         <Scene key="signUpModal" title="Sign Up" component={SignUp} schema='modal' leftTitle='Cancel'
-                               onLeft={() => {
-                                   Actions.pop();
-                               }}/>
+                               onLeft={this._pop.bind(this)}/>
                     </Scene>
                 </Scene>
             </Router>
