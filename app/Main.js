@@ -45,11 +45,11 @@ class Main extends Component {
             <Router createReducer={createNavigationReducer}>
                 <Scene key='root' hideNavBar={true}>
                     <Scene key='tabbar' tabs={true} default='storesTab'>
-                        <Scene key='storesTab' title='Stores' icon={StoreTabIcon} initial={true} component={Stores}/>
+                        <Scene key='storesTab' title='Stores' icon={StoreTabIcon} component={Stores}/>
                         <Scene key='notificationsTab' title='Notifications' icon={NotificationTabIcon} component={Notifications}/>
                         <Scene key='searchTab' title='Search' icon={SearchTabIcon} component={Search}/>
                         <Scene key='captureTab' title='Capture' icon={CameraTabIcon} component={Capture}/>
-                        <Scene key='profileTab' title='Profile' icon={ProfileTabIcon} component={Profile}/>
+                        <Scene key='profileTab' title='Profile' icon={ProfileTabIcon} component={Profile} initial={true}/>
                     </Scene>
                     <Scene key="location" direction='vertical'>
                         <Scene key='locationModal' title='Location' component={Location} schema='modal' leftTitle='Cancel'

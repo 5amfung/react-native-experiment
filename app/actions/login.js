@@ -30,10 +30,10 @@ export function emailLogInError(error) {
     };
 }
 
-export function emailLogIn(email, password) {
+export function emailLogIn(username, password) {
     return (dispatch) => {
         dispatch(emailLogInStart());
-        return Parse.User.logIn(email, password).then(user => {
+        return Parse.User.logIn(username, password).then(user => {
             dispatch(emailLogInSuccess(user));
 
             // Hacky.  Assuming log in is always done in a modal.
