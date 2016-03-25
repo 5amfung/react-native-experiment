@@ -17,10 +17,10 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         showLogInModal: () => {
-            Actions.login();
+            Actions.logInModal();
         },
         showSignUpModal: () => {
-            Actions.signUp();
+            Actions.signUpModal();
         },
         logOut: () => {
             dispatch(logOut());

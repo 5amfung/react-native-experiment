@@ -6,7 +6,7 @@ import React, { Component } from 'react-native';
 import { connect } from 'react-redux';
 import { authenticate } from './actions/authenticate';
 
-import { Actions, Scene, Reducer, Router } from 'react-native-router-flux';
+import { Actions, Modal, Reducer, Router, Scene } from 'react-native-router-flux';
 
 import Capture from './components/Capture';
 import Notifications from './components/Notifications';
@@ -17,6 +17,7 @@ import { StoreTabIcon, NotificationTabIcon, SearchTabIcon, CameraTabIcon, Profil
 
 import LogIn from './containers/LogIn';
 import SignUp from './containers/SignUp';
+import Location from './containers/Location';
 
 
 // We don't need createNavigationReducer.  This is created just to log the action to console.
@@ -43,20 +44,24 @@ class Main extends Component {
         return (
             <Router createReducer={createNavigationReducer}>
                 <Scene key='root' hideNavBar={true}>
-                    <Scene key='tabbar' tabs={true} default='storesTab'>
+                    <Scene key='tabbar' tabs={true}>
                         <Scene key='storesTab' title='Stores' icon={StoreTabIcon} component={Stores}/>
                         <Scene key='notificationsTab' title='Notifications' icon={NotificationTabIcon} component={Notifications}/>
                         <Scene key='searchTab' title='Search' icon={SearchTabIcon} component={Search}/>
                         <Scene key='captureTab' title='Capture' icon={CameraTabIcon} component={Capture} initial={true}/>
                         <Scene key='profileTab' title='Profile' icon={ProfileTabIcon} component={Profile}/>
                     </Scene>
-                    <Scene key='login' direction='vertical'>
-                        <Scene key="loginModal" title="Log In" component={LogIn} schema='modal' leftTitle='Cancel'
-                               onLeft={this._pop.bind(this)}/>
+                    <Scene key='logInModal' direction='vertical'>
+                        <Scene key='logIn' title='Log In' component={LogIn} schema='modal' leftTitle='Cancel'
+                               onLeft={this._pop}/>
                     </Scene>
-                    <Scene key='signUp' direction='vertical'>
-                        <Scene key="signUpModal" title="Sign Up" component={SignUp} schema='modal' leftTitle='Cancel'
-                               onLeft={this._pop.bind(this)}/>
+                    <Scene key='signUpModal' direction='vertical'>
+                        <Scene key='signUp' title='Sign Up' component={SignUp} schema='modal' leftTitle='Cancel'
+                               onLeft={this._pop}/>
+                    </Scene>
+                    <Scene key='locationModal' direction='vertical'>
+                        <Scene key='location' title='Location' component={Location} schema='modal' leftTitle='Cancel'
+                               onLeft={this._pop}/>
                     </Scene>
                 </Scene>
             </Router>
