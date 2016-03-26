@@ -4,6 +4,7 @@
 
 import React, { Component, ListView, StyleSheet, Text, View } from 'react-native';
 import ListItem from 'react-native-listitem';
+import Spinner from './Spinner';
 
 
 export default class LocationList extends Component {
@@ -27,27 +28,25 @@ export default class LocationList extends Component {
 
     _renderLoadingView() {
         return(
-            <View style={styles.loadingContainer}>
-                <Text style={styles.loadingDescription}>
-                    Loading...
-                </Text>
-            </View>
+            <Spinner/>
         );
     }
 
     _renderLocation(location) {
         return (
-            <ListItem text={location.name}/>
+            <ListItem text={location.get('name')}/>
         );
     }
 }
 LocationList.propTypes = {
     data: React.PropTypes.arrayOf(React.PropTypes.object),
-    loading: React.PropTypes.bool
+    loading: React.PropTypes.bool,
+    onSelect: React.PropTypes.func
 };
 LocationList.defaultProps = {
     data: [],
-    loading: false
+    loading: false,
+    onSelect: () => {}
 };
 
 let styles = StyleSheet.create({

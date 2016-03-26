@@ -3,35 +3,52 @@
  */
 
 import React, { Component, StyleSheet, View } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 import LocationList from '../components/LocationList';
+import { getLocations } from '../actions/location-service';
 
-
-export default class Location extends Component {
+class Location extends Component {
 
     componentDidMount() {
-        // TODO: Load locations from backend.
-
-        this.data = [
-            { name: 'Item 1' },
-            { name: 'Item 2' },
-            { name: 'Item 3' },
-            { name: 'Item 4' },
-            { name: 'Item 5' }
-        ];
+        let lat = 37.7009018;
+        let lng = -122.4184106;
+        this.props.getLocations(lat, lng);
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <LocationList data={this.data}/>
+                <LocationList {...this.props}/>
             </View>
         );
     }
 }
+Location.propTypes = {
+    data: React.PropTypes.arrayOf(React.PropTypes.object),
+    loading: React.PropTypes.bool,
+    getLocations: React.PropTypes.func,
+    onSelect: React.PropTypes.func
+};
+Location.defaultProps = {
+    data: [],
+    loading: false,
+    onSelect: () => {}
+};
 
-// TODO: Connect stats (loading, etc) to props.
-
+let mapStateToProps = (state) => {
+    return {
+        loading: state.locationService.loading,
+        data: state.locationService.results
+    };
+};
+let mapDispatchToProps = (dispatch) => {
+    return {
+        getLocations: (lat, lng) => {
+            dispatch(getLocations(lat, lng));
+        }
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Location);
 
 let styles = StyleSheet.create({
     container: {

@@ -7,20 +7,30 @@ import { Actions } from 'react-native-router-flux';
 
 
 export default class Capture extends Component {
+
     render() {
-        // TODO: Pass callback to Actions.locationModal({ onSelect: () => {...} }); to get user selection.
         return (
             <View style={styles.container}>
                 <Text style={styles.description}>
                     Capture Tab
                 </Text>
-                <TouchableOpacity onPress={Actions.locationModal}>
+                <TouchableOpacity
+                        onPress={() => {
+                            Actions.locationModal(this.onSelectLocation);
+                        }}>
                     <Text style={styles.buttonText}>
                         Show locations
                     </Text>
                 </TouchableOpacity>
             </View>
         );
+    }
+
+    onSelectLocation() {
+        Actions.pop();
+
+        // TODO: Process the location selected by user.
+        console.log('User selected a location.');
     }
 }
 
