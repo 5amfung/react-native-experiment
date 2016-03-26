@@ -59,24 +59,18 @@ export default class Capture extends Component {
     _selectPhoto() {
         const options = {
             quality: 0.5,
-            maxWidth: 1500,
-            maxHeight: 1500
+            maxWidth: 2000,
+            maxHeight: 2000,
+            noData: true
         };
 
         ImagePickerManager.showImagePicker(options, (response) => {
             console.log('Response = ', response);
             if (response.didCancel) {
                 console.log('User cancelled photo picker');
-            }
-            else if (response.error) {
+            } else if (response.error) {
                 console.log('ImagePickerManager Error: ', response.error);
-            }
-            else if (response.customButton) {
-                console.log('User tapped custom button: ', response.customButton);
-            }
-            else {
-                // You can display the image using either:
-                //const source = {uri: 'data:image/jpeg;base64,' + response.data, isStatic: true};
+            } else {
                 const source = {uri: response.uri.replace('file://', ''), isStatic: true};
                 this.setState({
                     photoSource: source
