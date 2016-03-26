@@ -4,6 +4,7 @@
 
 import React, { Component, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import Avatar from './Avatar';
 
 
 export default class Capture extends Component {
@@ -22,6 +23,13 @@ export default class Capture extends Component {
                         Show locations
                     </Text>
                 </TouchableOpacity>
+                <TouchableOpacity
+                        onPress={() => {
+                            console.log('pick image');
+                        }}>
+                    <Avatar size={100} source={{ uri: 'https://placeholdit.imgix.net/~text?txtsize=75&txt=1000%C3%971000&w=1000&h=1000' }}/>
+                </TouchableOpacity>
+
             </View>
         );
     }
