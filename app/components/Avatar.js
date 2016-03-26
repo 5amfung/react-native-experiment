@@ -1,5 +1,5 @@
 /**
- * Avatar.
+ * Show image inside a cirle.
  */
 
 import React, { Component, Image, PixelRatio, StyleSheet, View } from 'react-native';
