@@ -2,7 +2,7 @@
  * Capture.
  */
 
-import React, { Component, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { Component, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 

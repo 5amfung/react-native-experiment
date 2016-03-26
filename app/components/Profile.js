@@ -3,7 +3,6 @@
  */
 
 import React, { Component, PropTypes, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 

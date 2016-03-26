@@ -9,7 +9,7 @@ import { emailSignUp } from '../actions/signup';
 
 let mapStateToProps = (state) => {
     return {
-        loading: state.emailLogIn.inProgress
+        loading: state.emailSignUp.inProgress
     };
 };
 let mapDispatchToProps = dispatch => {

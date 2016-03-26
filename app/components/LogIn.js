@@ -2,11 +2,11 @@
  * LogIn component.
  */
 
-import React, { Component, StyleSheet, Text, View } from 'react-native';
+import React, { Component, StyleSheet, Text } from 'react-native';
 import Button from 'react-native-button';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { Form, InputField } from 'react-native-form-generator';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 export default class LogIn extends Component {

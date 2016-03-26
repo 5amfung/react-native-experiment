@@ -2,7 +2,7 @@
  * Displays a list of locations.
  */
 
-import React, { Component, ListView, StyleSheet, Text, View } from 'react-native';
+import React, { Component, ListView } from 'react-native';
 import ListItem from 'react-native-listitem';
 import Spinner from './Spinner';
 
@@ -48,14 +48,3 @@ LocationList.defaultProps = {
     loading: false,
     onSelect: () => {}
 };
-
-let styles = StyleSheet.create({
-    loadingContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    loadingDescription: {
-        fontSize: 20
-    }
-});

@@ -6,7 +6,7 @@ import React, { Component } from 'react-native';
 import { connect } from 'react-redux';
 import { authenticate } from './actions/authenticate';
 
-import { Actions, Modal, Reducer, Router, Scene } from 'react-native-router-flux';
+import { Actions, Reducer, Router, Scene } from 'react-native-router-flux';
 
 import Capture from './components/Capture';
 import Notifications from './components/Notifications';
